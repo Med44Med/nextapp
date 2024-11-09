@@ -42,12 +42,12 @@ function RegisterForm() {
           placeholder="your password"
         />
         {pwdVisible ? (
-          <FaRegEyeSlash
+          <FaRegEye
             className="absolute right-0 top-1/2 -translate-y-1/2 cursor-pointer"
             onClick={() => setPwdVisible(!pwdVisible)}
           />
         ) : (
-          <FaRegEye
+          <FaRegEyeSlash
             className="absolute right-0 top-1/2 -translate-y-1/2 cursor-pointer"
             onClick={() => setPwdVisible(!pwdVisible)}
           />
