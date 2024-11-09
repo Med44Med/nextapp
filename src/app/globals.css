@@ -19,3 +19,7 @@ body {
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
 }
+ @keyframes appearPopup {
+  from{transform: translateY(20px) ;}
+  to{transform: translateY(0px) ;}
+ }

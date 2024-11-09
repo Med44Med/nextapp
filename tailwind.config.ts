@@ -8,6 +8,10 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      animation: {
+        'appear': 'appearPopup .3s ease',
+      },
+
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
