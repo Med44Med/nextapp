@@ -1,6 +1,8 @@
-import mongoose ,{Schema,Document,Model} from "mongoose"
+import { Document, Model } from "mongoose";
+import * as Mongoose from "mongoose";
 
-interface IUserModel extends Document {
+
+interface IUser {
     username:string;
     email:string;
     password:string;
@@ -8,23 +10,32 @@ interface IUserModel extends Document {
     updatedAt:Date;
  }
 
-const userSchema :Schema<IUserModel> = new Schema({
-    username:{
-        type:String,
-        required:true
-    },
-    email:{
-        type:String,
-        required:true
-    },
-    password:{
-        type:String,
-        required:true
-    }
-},
-{
-    timestamps:true
-}
+ 
+
+
+const userSchema = new Mongoose.Schema(
+        {
+            username:{
+                type:String,
+                required:true
+            },
+            email:{
+                type:String,
+                required:true
+            },
+            password:{
+                type:String,
+                required:true
+            }
+        },
+        {
+            timestamps:true
+        }
 )
-const User:Model<IUserModel> = mongoose.models.User || mongoose.model<IUserModel>('hello', userSchema) 
+
+interface IUserDocument extends IUser, Document{}
+type IUserModel = Model<IUserDocument>
+
+const User: IUserModel = Mongoose.models.nextUser || Mongoose.model<IUserDocument>("nextUser", userSchema);
+
 export default  User

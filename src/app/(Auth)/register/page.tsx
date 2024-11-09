@@ -1,4 +1,4 @@
-import RegisterForm from './RegisterForm.jsx'
+import RegisterForm from './RegisterForm.tsx'
 
 
 

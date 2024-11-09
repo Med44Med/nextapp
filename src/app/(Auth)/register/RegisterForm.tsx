@@ -1,6 +1,6 @@
 "use client";
 
-import { useActionState, useState } from "react";
+import { useActionState, useState,useEffect } from "react";
 import { useFormStatus } from "react-dom";
 import Link from "next/link";
 
@@ -12,6 +12,12 @@ import { register } from "./registerAction.ts";
 function RegisterForm() {
   const [state, registerAction] = useActionState(register, undefined);
   const [pwdVisible, setPwdVisible] = useState(false);
+
+  useEffect(() => {
+    console.log(state);
+    
+  }, [state])
+  
 
   return (
     <form
@@ -67,6 +73,7 @@ function RegisterForm() {
       {/* google */}
 
       <SubmitButton />
+      {state?.errors && <h1>{state.errors}</h1>}
     </form>
   );
 }
