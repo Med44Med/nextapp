@@ -27,7 +27,9 @@ export async function POST(req: NextRequest){
             email:user.email,
             role:user.role,
         }
-        createSession(data.id,data.role)
+        
+        // createSession(data.id.toString(),data.role)
+        
         return NextResponse.json({message:'logged successfuly',data},{status:200})
 
     } catch (error) {

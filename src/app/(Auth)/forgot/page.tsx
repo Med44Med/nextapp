@@ -1,8 +1,10 @@
 import React from 'react'
-
+import ForgotForm from './forgotForm'
 function Forgot() {
   return (
-    <div>Forgot</div>
+    <>
+      <ForgotForm />
+    </>
   )
 }
 

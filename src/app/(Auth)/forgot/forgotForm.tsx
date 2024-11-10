@@ -4,16 +4,14 @@ import { useActionState, useState,useEffect } from "react";
 import { useFormStatus } from "react-dom";
 import Link from "next/link";
 
-import { FaRegEyeSlash, FaRegEye } from "react-icons/fa";
 import { ImSpinner } from "react-icons/im";
 
-import { login } from "./loginAction.ts";
+import { forgot } from "./forgotAction.ts";
 import {useRouter} from 'next/navigation'
 
-function LoginForm() {
+function ForgotForm() {
   const router = useRouter()
-  const [state, loginAction] = useActionState(login, undefined);
-  const [pwdVisible, setPwdVisible] = useState(false);
+  const [state, forgotAction] = useActionState(forgot, undefined);
 
  useEffect(() => {
   console.log(state);
@@ -25,7 +23,7 @@ function LoginForm() {
   
 
   return (
-    <form action={loginAction} className="bg-white text-black w-96 flex-grow rounded-md px-2 py-10 flex flex-col justify-start items-center shadow-md">
+    <form action={forgotAction} className="bg-white text-black w-96 flex-grow rounded-md px-2 py-10 flex flex-col justify-start items-center shadow-md">
         <div className="flex flex-row justify-center items-center w-5/6 mb-4 relative">
             <input
                 type="email"
@@ -35,24 +33,10 @@ function LoginForm() {
                 autoFocus
             />
         </div>
-        <div className="flex flex-row justify-center items-center w-5/6 mb-4 relative">
-            <input
-                type={pwdVisible ? "text":"password"}
-                name="password"
-                className="flex-grow outline-none border-b border-solid border-gray-500 w-full h-10 rounded-none  px-2 placeholder:text-sm transition-all duration-300 ease-in focus:border-green-400 focus:border-solid focus:border-b"
-                placeholder='Password'
-            />
-            {pwdVisible 
-            ?
-            <FaRegEye className="absolute right-0 top-1/2 -translate-y-1/2 cursor-pointer" onClick={()=>setPwdVisible(!pwdVisible)}/>
-            :
-            <FaRegEyeSlash className="absolute right-0 top-1/2 -translate-y-1/2 cursor-pointer" onClick={()=>setPwdVisible(!pwdVisible)}/>
-            }
-        </div>
         <h4 className='w-5/6 font-normal text-sm text-gray-500 select-none'>
             you don't have an account,
-            <Link href="/register" className='text-gray-700 font-bold transition-all ease-out hover:text-black hover:underline select-none'>
-                Register
+            <Link href="/login" className='text-gray-700 font-bold transition-all ease-out hover:text-black hover:underline select-none'>
+                Login
             </Link>
       </h4>
       
@@ -63,7 +47,7 @@ function LoginForm() {
   )
 }
 
-export default LoginForm
+export default ForgotForm
 
 function SubmitButton() {
     const { pending } = useFormStatus();
