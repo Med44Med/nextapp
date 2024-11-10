@@ -3,10 +3,7 @@ import React from "react";
 
 
 
-export const metadata: Metadata = {
-    title: "Next App | Register",
-    description: "this the register page",
-  };
+
 
 function Authlayout({ children,}: { children: React.ReactNode }) {
   return (

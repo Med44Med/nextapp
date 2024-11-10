@@ -5,11 +5,11 @@ import { cookies } from "next/headers";
 const secretKey = process.env.SESSION_SECRET;
 const encodedKey = new TextEncoder().encode(secretKey);
 
-export async function createSession(userId: string) {
+export async function createSession(userId: string,role:string) {
   const expiresAt = new Date(Date.now() + 60 * 60 * 1000);
-  const session = await encrypt({ userId, expiresAt });
-
-  cookies().set("session", session, {
+  const session = await encrypt({ userId, expiresAt,role });
+  const cookie = await cookies()
+  cookie.set("session", session, {
     httpOnly: true,
     secure: true,
     expires: expiresAt,
@@ -17,7 +17,8 @@ export async function createSession(userId: string) {
 }
 
 export async function deleteSession() {
-  cookies().delete("session");
+  const cookie = await cookies()
+  cookie.delete("session");
 }
 
 type SessionPayload = {

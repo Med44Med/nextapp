@@ -6,6 +6,7 @@ interface IUser {
     username:string;
     email:string;
     password:string;
+    role:string;
     createdAt:Date;
     updatedAt:Date;
  }
@@ -26,6 +27,10 @@ const userSchema = new Mongoose.Schema(
             password:{
                 type:String,
                 required:true
+            },
+            role:{
+                type:String,
+                default:"user"
             }
         },
         {
