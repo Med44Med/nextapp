@@ -22,8 +22,7 @@ export async function createSession(userId: string,role:string) {
 }
 
 export async function deleteSession() {
-  const cookie = await cookies()
-  cookie.delete("session");
+  (await cookies()).delete("session");
 }
 
 type SessionPayload = {

@@ -3,21 +3,26 @@
 import { useActionState, useState,useEffect } from "react";
 import { useFormStatus } from "react-dom";
 import Link from "next/link";
+import { login } from "../../../lib/reduxStore/slice/userSlice.ts";
+import { useAppDispatch } from "../../../lib/reduxStore/hooks.ts";
 
 import { FaRegEyeSlash, FaRegEye } from "react-icons/fa";
 import { ImSpinner } from "react-icons/im";
 
-import { login } from "./loginAction.ts";
+import  {action}  from "./loginAction.ts";
 import {useRouter} from 'next/navigation'
 
 function LoginForm() {
   const router = useRouter()
-  const [state, loginAction] = useActionState(login, undefined);
+  const dispatch = useAppDispatch()
+  
+  const [state, loginAction] = useActionState( action , undefined);
   const [pwdVisible, setPwdVisible] = useState(false);
 
  useEffect(() => {
   console.log(state);
-  if (state===200) {
+  if (state?.status === 200) {
+    dispatch(login(state?.data))
     router.push('/dashboard')
   }
  }, [state])
@@ -50,7 +55,7 @@ function LoginForm() {
             }
         </div>
         <h4 className='w-5/6 font-normal text-sm text-gray-500 select-none'>
-            you don't have an account,
+            you don`&apos`t have an account,
             <Link href="/register" className='text-gray-700 font-bold transition-all ease-out hover:text-black hover:underline select-none'>
                 Register
             </Link>

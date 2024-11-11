@@ -3,9 +3,6 @@ import User from "../../../lib/db/models/User";
 import { NextResponse, NextRequest } from 'next/server'
 import bcryptjs from 'bcryptjs'
 
-import {createSession} from "../../../lib/Session"
-
-
 
 
 export async function POST(req: NextRequest){
@@ -36,3 +33,4 @@ export async function POST(req: NextRequest){
         return NextResponse.json({error},{status:500})
     }
 }
+
