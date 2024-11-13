@@ -2,22 +2,48 @@
 @tailwind components;
 @tailwind utilities;
 
+
+
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@200..1000&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200');
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=dark_mode" />
 :root {
-  --background: #ffffff;
+  --main: #ffffff;
   --foreground: #171717;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html[theme="dark"] {
+    --background: #171717;
+    --foreground: #ffffff;
+}
+html[theme="light"] {
+    --background: #f1f7ef;
+    --foreground: #171717;
+}
+
+*{
+  margin: 0;
+  padding:0;
+  box-sizing: border-box;
+  direction: rtl;
 }
 
 body {
   color: var(--foreground);
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
+  scroll-behavior: smooth;
+}
+body
+{
+  color: var(--foreground);
+  background: var(--background);
+  font-family: Arial, Helvetica, sans-serif;
+  scroll-behavior: smooth;
+}
+
+header.hide{
+  transform: translateY(-100%);
 }
  @keyframes appearPopup {
   from{transform: translateY(20px) ;}

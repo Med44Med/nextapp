@@ -1,6 +1,6 @@
 
 import Link from "next/link";
-import  Anime  from "./Animbundle";
+import  {Anime,ThemeHandler}  from "./JSBundle";
 
 export default async  function Home() {
   
@@ -13,12 +13,13 @@ export default async  function Home() {
 
   
   return (
-    <main className="flex flex-col justify-start items-center min-h-screen">
-      <header className="fixed w-screen h-20 bg-transparent z-50 flex items-center justify-start gap-24">
+    <main className="flex flex-col justify-start items-center min-h-screen bg-background">
+      <header className="fixed w-screen h-20 bg-transparent backdrop-blur-sm z-50 flex items-center justify-start gap-24 transition-all delay-100">
         <div className="logo h-full w-1/6 bg-white"></div>
         <nav className="grow flex justify-start items-center gap-3">
           <Link href='/register'>Register</Link>
           <Link href='/register'>Login</Link>
+          <ThemeHandler />
         </nav>
       </header>
       <section className="flex flex-col justify-center items-center h-screen">
