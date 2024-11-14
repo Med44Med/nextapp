@@ -15,7 +15,13 @@ const config: Config = {
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
-        main:""
+        main:"var(--main)",
+        soft:"var(--soft)",
+        hard:"--hard",
+        danger:"var(--danger)"
+      },
+      fontFamily: {
+        'main':['"Cairo", serif']
       },
     },
   },

@@ -17,8 +17,8 @@ export default async  function Home() {
       <header className="fixed w-screen h-20 bg-transparent backdrop-blur-sm z-50 flex items-center justify-start gap-24 transition-all delay-100">
         <div className="logo h-full w-1/6 bg-white"></div>
         <nav className="grow flex justify-start items-center gap-3">
-          <Link href='/register'>Register</Link>
-          <Link href='/register'>Login</Link>
+          <Link href='/register' className="font-bold text-lg font-main">تسجيل الدخول</Link>
+          <Link href='/register' className="font-bold text-lg font-main">إنشاء حساب</Link>
           <ThemeHandler />
         </nav>
       </header>

@@ -18,7 +18,10 @@ export function ThemeHandler(){
   useEffect(()=>{
     if (darkModeprefered && theme === null ) {
       changeTheme("dark")
-    }
+    } 
+    if (!darkModeprefered && theme === null ) {
+      changeTheme("light")
+    } 
 
     if (theme === "dark") {
       document.querySelector("html").setAttribute("theme","dark")
