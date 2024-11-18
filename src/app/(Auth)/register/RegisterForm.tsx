@@ -22,7 +22,7 @@ function RegisterForm() {
   return (
     <form
       action={registerAction}
-      className="bg-white text-black w-96 flex-grow rounded-md px-2 py-10 flex flex-col justify-start items-center shadow-md animate-appear"
+      className="bg-foreground  text-black w-96 flex-grow rounded-md px-2 py-10 flex flex-col justify-start items-center shadow-md animate-appear"
     >
       <input
         type="text"

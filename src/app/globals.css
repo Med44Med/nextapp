@@ -25,7 +25,6 @@ html[theme="light"] {
   margin: 0;
   padding:0;
   box-sizing: border-box;
-  direction: rtl;
   font-family: "Cairo", sans-serif;
 }
 
@@ -34,19 +33,23 @@ body {
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
   scroll-behavior: smooth;
+  min-height: 100vh;
   direction: rtl;
 }
+main{
+}
+
 
 body::-webkit-scrollbar 
 {
-  width: 10px;
-  
+  width: 5px;
 
 }
 body::-webkit-scrollbar-track {
   background: grey;
   visibility: none;
   transition: all 0.3s ease;
+
 }
 body::-webkit-scrollbar-track:hover {
   visibility: visible;

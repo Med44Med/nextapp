@@ -13,8 +13,8 @@ export default async  function Home() {
 
   
   return (
-    <main className="flex flex-col justify-start items-center min-h-screen bg-background">
-      <header className="fixed w-screen h-20 bg-transparent backdrop-blur-sm z-50 flex items-center justify-start gap-24 transition-all delay-100">
+    <main className="flex flex-col justify-start items-center  bg-background ">
+      <header className="fixed w-screen h-20 bg-transparent z-10 flex items-center justify-start gap-24 transition-all delay-100">
         <div className="logo h-full w-1/6 bg-white"></div>
         <nav className="grow flex justify-start items-center gap-3">
           <Link href='/register' className="font-bold text-lg font-main">تسجيل الدخول</Link>
@@ -22,12 +22,21 @@ export default async  function Home() {
           <ThemeHandler />
         </nav>
       </header>
-      <section className="flex flex-col justify-center items-center h-screen">
+      <section className="flex flex-col justify-center items-center min-h-screen w-full">
         <h1 className="title">Window</h1>
       </section>
-      <section className="flex flex-col justify-center items-center min-h-screen">
-
+      <section className="flex flex-col justify-center items-center min-h-screen w-full">
+        solution section
       </section>
+      <section className="flex flex-col justify-center items-center min-h-screen w-full">
+        pricing section
+      </section>
+      <section className="flex flex-col justify-center items-center min-h-screen w-full">
+        faq section
+      </section>
+      <footer>
+        footer
+      </footer>
       <Anime />
     </main>
   );
