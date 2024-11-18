@@ -7,7 +7,7 @@
 :root {
   --hard: #56c596;
   --main: #7be495;
-  --soft: #cff402;
+  --soft: #9cf6a9;
   --danger: #ff5555;
 }
 
@@ -66,4 +66,8 @@ header.hide{
  @keyframes appearPopup {
   from{transform: translateY(20px) ;}
   to{transform: translateY(0px) ;}
+ }
+ @keyframes appearAside {
+  from{transform: translateX(100%) ;}
+  to{transform: translateX(0%) ;}
  }

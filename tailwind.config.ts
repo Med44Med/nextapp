@@ -10,6 +10,7 @@ const config: Config = {
     extend: {
       animation: {
         'appear': 'appearPopup .3s ease',
+        'appearAside': 'appearAside .3s ease',
       },
 
       colors: {
@@ -17,7 +18,7 @@ const config: Config = {
         foreground: "var(--foreground)",
         main:"var(--main)",
         soft:"var(--soft)",
-        hard:"--hard",
+        hard:"var(--hard)",
         danger:"var(--danger)"
       },
       fontFamily: {
