@@ -10,7 +10,7 @@ function Dashboard() {
   const dispatch = useAppDispatch()
   const router = useRouter()
   const data = useAppSelector (state => state.user.data)
-  console.log(data);
+  
   
 
   const handleLogOUt =()=>{

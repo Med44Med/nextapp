@@ -56,7 +56,7 @@ export default function PlateformLayout({children}: { children: React.ReactNode 
               </button>
           </nav>
         </aside>
-        <div className="w-full h-screen flex flex-col justify-start items-center">
+        <div className="w-full h-screen flex flex-col justify-start items-center gap-6 py-10">
           {children}
         </div>
     </main>
