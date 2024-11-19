@@ -23,6 +23,7 @@ export async function POST(req: NextRequest){
             username:user.username,
             email:user.email,
             role:user.role,
+            avatar:user.avatar,
         }
         
         // createSession(data.id.toString(),data.role)

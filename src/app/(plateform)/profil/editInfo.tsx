@@ -56,7 +56,7 @@ const EditInfo = () => {
 
 
   return (
-    <div className="bg-transparent border-2 border-solid border-main w-11/12 h-full rounded-md flex flex-col justify-center items-center gap-6 sm:w-10/12">
+    <div className="bg-transparent border-2 border-solid border-main w-11/12 h-screen rounded-md flex flex-col justify-center items-center gap-6 sm:w-10/12">
       <form action="">
 
       </form>

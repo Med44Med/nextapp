@@ -37,7 +37,7 @@ export default function PlateformLayout({children}: { children: React.ReactNode 
   }
 
   return (
-    <main className="min-h-screen flex flex-row w-full justify-start items-center relative">
+    <main className="h-screen flex flex-row w-full justify-start items-start relative overflow-y-hidden">
         <aside className="w-1/5 h-screen bg-main flex flex-col justify-start items-center gap-6 py-6 relative animate-appearAside rounded-l-md">
           <h1 className="text-center text-base select-none" >welcome back<br/><Link href="/profil" className="text-xl font-bold">{data?.username}</Link></h1>
           <nav className="flex flex-col gap-1 w-full h-full pr-4">
@@ -56,7 +56,7 @@ export default function PlateformLayout({children}: { children: React.ReactNode 
               </button>
           </nav>
         </aside>
-        <div className="w-full h-screen flex flex-col justify-start items-center gap-6 py-10">
+        <div className="w-full h-full overflow-y-auto flex flex-col justify-start items-center relative scroll-smooth scrollBar">
           {children}
         </div>
     </main>

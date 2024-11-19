@@ -7,6 +7,7 @@ interface IUser {
     email:string;
     password:string;
     role:string;
+    avatar:string;
     createdAt:Date;
     updatedAt:Date;
  }
@@ -31,7 +32,11 @@ const userSchema = new Mongoose.Schema(
             role:{
                 type:String,
                 default:"user"
-            }
+            },
+            avatar:{
+                type:String,
+                default:""
+            },
         },
         {
             timestamps:true

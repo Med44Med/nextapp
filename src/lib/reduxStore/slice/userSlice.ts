@@ -6,6 +6,7 @@ export interface IUser {
   role?: string
   username?: string
   email?: string
+  avatar?: string
 }
 
 const initialState  = {
@@ -21,10 +22,13 @@ export const userSlice = createSlice({
     },
     login: (state, action: PayloadAction<IUser>) => {
       state.data = action.payload      
+    },
+    updateProfilPic: (state, action: PayloadAction<string>) => {
+      state.data.avatar = action.payload      
     }
   }
 })
 
-export const { login, logOut } = userSlice.actions
+export const { login, logOut,updateProfilPic } = userSlice.actions
 
 export default userSlice.reducer
