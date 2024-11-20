@@ -69,12 +69,13 @@ const handleAvatar = async ()=>{
   }
 }
   return (
-    <div className="bg-transparent border-2 border-solid border-main w-11/12 h-52 rounded-md flex flex-col justify-center items-center gap-6 sm:w-10/12">
+    <div className="bg-transparent border-2 border-solid border-main w-11/12 rounded-md flex flex-col justify-center items-center gap-6 py-6 sm:w-10/12">
+      <h1 className="w-full text-xl md:text-2xl px-4">تحديث صورتك :</h1>
       <div
         onClick={() => {
           profilePictureRef.current.click();
         }}
-        className="h-1/2 aspect-square rounded-full bg-foreground flex flex-col justify-center items-center cursor-pointer relative"
+        className="h-32 aspect-square rounded-full bg-foreground flex flex-col justify-center items-center cursor-pointer relative"
       >
         <div
           className="absolute inset-0 rounded-full z-0"
@@ -104,7 +105,7 @@ const handleAvatar = async ()=>{
         ref={profilePictureRef}
         className="hidden"
       />
-      <button onClick={()=>{handleAvatar()}} className="bg-main text-foreground px-10 py-2 rounded-md transition-colors hover:bg-hard">Update</button>
+      <button onClick={()=>{handleAvatar()}} className="bg-main w-5/6 text-foreground text-2xl font-bold px-14 py-2 mt-2 rounded-md transition-colors md:text-xl md:w-fit hover:bg-hard">تحديث</button>
 
     </div>
   );
