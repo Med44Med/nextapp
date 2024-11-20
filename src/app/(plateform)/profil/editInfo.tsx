@@ -1,9 +1,8 @@
 "use client"
-import React,{useRef,useState,useEffect} from 'react'
+import React,{useActionState,useRef,useState,useEffect} from 'react'
 import { useAppSelector,useAppDispatch } from "../../../lib/reduxStore/hooks.ts";
-import app from '../../../lib/firebase/app.ts'
-import { ref ,uploadBytesResumable,getDownloadURL,getStorage} from "firebase/storage";
-
+import {update} from './updateinfoAction.ts'
+import communes from "../../../lib/assets/Communes.json"
 
 const EditInfo = () => {
 
@@ -12,53 +11,63 @@ const EditInfo = () => {
   
 //profil picture handler
 
-  const profilePictureRef = useRef(null)
+  const [state,updateinfoAction] = useActionState(update,{firstname:"mohammed"})
   
-  const [profilPic,setProfilPic] = useState()
-  const [isUploading,setIsUploading] = useState(false)
-  const [uploadPercent,setIsUploadPercent] = useState(0)
-  const [uploadMsg,setIsUploadMsg] = useState("")
-  const [profilUrl,setProfilUrl] = useState("")
-
-  const storage = getStorage(app);
+  console.log(state);
   
-  useEffect(() => {
-    if (!profilPic) {
-      return;
-    } else {
-      if (profilPic.size > 5242880) {
-        alert("please choos a picture < 5MB");
-      } else {      
-        setIsUploading(true);
-        const storageRef = ref(storage, `profilePictures/${userID}`);
-        const uploading = uploadBytesResumable(storageRef, profilPic);
-        uploading.on(
-          "state_changed",
-          (snapshot) => {
-            const progress = Math.floor((snapshot.bytesTransferred / snapshot.totalBytes) * 100);
-            setIsUploadPercent(progress);
-          },
-          (error) => {
-            console.log(error);
-            setIsUploadMsg(error)
-          },
-          () => {
-            getDownloadURL(uploading.snapshot.ref).then((downloadURL) => {
-              setProfilUrl(downloadURL);
-              setIsUploading(false);
-              setIsUploadPercent(0);
-            });
-          }
-        );
-      }
-    }
-  }, [profilPic]);
 
 
   return (
-    <div className="bg-transparent border-2 border-solid border-main w-11/12 h-screen rounded-md flex flex-col justify-center items-center gap-6 sm:w-10/12">
-      <form action="">
-
+    <div className="bg-transparent border-2 border-solid border-main w-11/12 h-screen rounded-md flex flex-col justify-start items-center gap-6 py-6 sm:w-10/12">
+      <h1 className=" justify-self-start	">personel infromation:</h1>
+      <form action={updateinfoAction}>
+        <input
+          type="text"
+          name="username"
+          className="outline-none border-b border-solid border-gray-500 w-5/6 h-10 rounded-none mb-4 px-2 placeholder:text-sm transition-all ease-in focus:border-green-400 focus:border-solid focus:border-b"
+          placeholder="username"
+          autoFocus
+        />
+        {state?.errors?.username && (<p className="text-red-500 w-5/6 text-sm">{state.errors.username}</p>)}
+        <input
+          type="text"
+          name="firstname"
+          className="outline-none border-b border-solid border-gray-500 w-5/6 h-10 rounded-none mb-4 px-2 placeholder:text-sm transition-all ease-in focus:border-green-400 focus:border-solid focus:border-b"
+          placeholder="firstname"
+        />
+        <input
+          type="text"
+          name="lastname"
+          className="outline-none border-b border-solid border-gray-500 w-5/6 h-10 rounded-none mb-4 px-2 placeholder:text-sm transition-all ease-in focus:border-green-400 focus:border-solid focus:border-b"
+          placeholder="lastname"
+        />
+        <input
+          type="text"
+          name="lastname"
+          className="outline-none border-b border-solid border-gray-500 w-5/6 h-10 rounded-none mb-4 px-2 placeholder:text-sm transition-all ease-in focus:border-green-400 focus:border-solid focus:border-b"
+          placeholder="lastname"
+        />
+        <input
+          type="date"
+          name="birthdate"
+          className="outline-none border-b border-solid border-gray-500 w-5/6 h-10 rounded-none mb-4 px-2 placeholder:text-sm transition-all ease-in focus:border-green-400 focus:border-solid focus:border-b"
+          placeholder="birthdate"
+        />
+        <input
+          type="text"
+          name="aderesse"
+          className="outline-none border-b border-solid border-gray-500 w-5/6 h-10 rounded-none mb-4 px-2 placeholder:text-sm transition-all ease-in focus:border-green-400 focus:border-solid focus:border-b"
+          placeholder="adress"
+        />
+        <select value={state.wilaya} name="wilaya">
+                <option value="">الرجاء اختيار الولاية</option>
+                {/* {communes.filter((obj,index,self)=>{
+                                  return index === self.findIndex((o)=> o.wilaya_name_ascii === obj.wilaya_name_ascii)
+                                })
+                         .map((wilaya)=>(
+                            <option key={wilaya.id} value={wilaya.wilaya_name_ascii}>{wilaya.wilaya_name}</option>
+                ))} */}
+        </select>
       </form>
     </div>
   );
