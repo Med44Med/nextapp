@@ -5,8 +5,8 @@
 
 
 export async function update(prevState: unknown, formData: FormData) {
-  const { username } = formData;
-  console.log(username);
+  const data = Object.fromEntries(formData)
+  console.log(data);
 
   // const existingUser = await findUserByEmail(email);
   // if (existingUser) {
@@ -17,7 +17,7 @@ export async function update(prevState: unknown, formData: FormData) {
   //   return { user, error: null };
   // }
 
-  return  ;
+  return data;
 }
 
 export async function updatePass(prevState: unknown, formData: FormData) {

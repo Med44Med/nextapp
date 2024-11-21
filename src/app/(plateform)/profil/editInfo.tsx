@@ -12,9 +12,15 @@ const EditInfo = () => {
   }
 //profil picture handler
 
+  const [wilaya, setWilaya] = useState("")
+  const [commune, setCommune] = useState("")
   const [state,updateinfoAction] = useActionState(update,user)
   
-  console.log(state);
+  useEffect(() => {
+    console.log(wilaya);
+    
+  }, [wilaya])
+  
   
 
 
@@ -53,8 +59,8 @@ const EditInfo = () => {
           placeholder={state?.birthday || ""}
         />
         <label htmlFor="lastname" className="w-full md:w-2/3">ولاية :</label>
-        <select name="wilaya" className="w-full md:w-2/3 h-10 rounded-sm text-black mb-4 px-2">
-                <option value="">الرجاء اختيار الولاية</option>
+        <select name="wilaya" onChange={e=>{setWilaya(e.target.value)}} className="w-full md:w-2/3 h-10 rounded-sm text-black mb-4 px-2">
+                <option value="hello">الرجاء اختيار الولاية</option>
                 {communes.filter((obj,index,self)=>{
                   return index === self.findIndex((o)=> o.wilaya_name_ascii === obj.wilaya_name_ascii)
                 })
@@ -63,9 +69,9 @@ const EditInfo = () => {
                 ))}
         </select>
         <label htmlFor="lastname" className="w-full md:w-2/3">البلدية :</label>
-        <select name="wilaya" className="w-full md:w-2/3 h-10 rounded-sm text-black mb-4 px-2">
+        <select name="commune" className="w-full md:w-2/3 h-10 rounded-sm text-black mb-4 px-2">
                 <option value="">الرجاء اختيار البلدية</option>
-                {communes.filter((value)=>{return value.wilaya_name_ascii === state?.wilaya})
+                {communes.filter((value)=>{return value.wilaya_name_ascii === wilaya})
                          .map((commune)=>(
                           <option key={commune.id} value={commune.commune_name_ascii}>{commune.commune_name}</option>
                          ))
