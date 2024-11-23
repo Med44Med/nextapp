@@ -7,6 +7,16 @@ export interface IUser {
   username?: string
   email?: string
   avatar?: string
+  firstname?:string
+  lastname?:string
+  birthdate?:date
+  gender?:string
+  phone?:string
+  wilaya?:string
+  commune?:string
+  address?:string
+  created_at?:date
+  updated_at?:date
 }
 
 const initialState  = {

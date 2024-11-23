@@ -1,8 +1,18 @@
 "use client"
 import React,{useActionState} from 'react'
+import { useFormStatus } from "react-dom";
+import { useAppSelector } from "../../../lib/reduxStore/hooks.ts";
+
+import { ImSpinner } from "react-icons/im";
+
+
+
 import {updatePass} from './updateinfoAction.ts'
 
 const EditPass = () => {
+
+  const id = useAppSelector (state => state.user.data.id)
+  
 
   const [state,updatePassAction] = useActionState(updatePass,undefined)
 
@@ -16,6 +26,7 @@ const EditPass = () => {
       <h1 className="w-full px-4 text-xl md:text-2xl font-bold">تغيير كلمة المرور الخاصة بك:</h1>
       
       <form action={updatePassAction} className="flex flex-col justify-start items-center w-5/6 gap-3">
+        <input type="text" name="id" value={id} className="hidden" />
         <label className="w-full md:w-2/3">كلمة المرور السابقة :</label>
         <input
           type="password"
