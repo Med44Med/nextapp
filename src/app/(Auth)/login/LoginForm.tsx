@@ -3,13 +3,13 @@
 import { useActionState, useState,useEffect } from "react";
 import { useFormStatus } from "react-dom";
 import Link from "next/link";
-import { login } from "../../../lib/reduxStore/slice/userSlice.ts";
-import { useAppDispatch } from "../../../lib/reduxStore/hooks.ts";
+import { login } from "../../../lib/reduxStore/slice/userSlice";
+import { useAppDispatch } from "../../../lib/reduxStore/hooks";
 
 import { FaRegEyeSlash, FaRegEye } from "react-icons/fa";
 import { ImSpinner } from "react-icons/im";
 
-import  {action}  from "./loginAction.ts";
+import  {action}  from "./loginAction";
 import {useRouter} from 'next/navigation'
 
 function LoginForm() {
@@ -20,7 +20,6 @@ function LoginForm() {
   const [pwdVisible, setPwdVisible] = useState(false);
 
  useEffect(() => {
-  console.log(state);
   if (state?.status === 200) {
     dispatch(login(state?.data))
     router.push('/dashboard')

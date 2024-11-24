@@ -1,4 +1,5 @@
-import RegisterForm from './RegisterForm.tsx'
+import RegisterForm from './RegisterForm'
+import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Next App | Register",

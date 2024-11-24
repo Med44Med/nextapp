@@ -1,12 +1,12 @@
 "use client";
 
-import { useActionState, useState,useEffect } from "react";
+import { useActionState,useEffect } from "react";
 import { useFormStatus } from "react-dom";
 import Link from "next/link";
 
 import { ImSpinner } from "react-icons/im";
 
-import { forgot } from "./forgotAction.ts";
+import { forgot } from "../actions/forgotAction";
 import {useRouter} from 'next/navigation'
 
 function ForgotForm() {
@@ -15,7 +15,7 @@ function ForgotForm() {
 
  useEffect(() => {
   console.log(state);
-  if (state===200) {
+  if (state?.status===200) {
     router.push('/dashboard')
   }
  }, [state])
@@ -46,7 +46,7 @@ function ForgotForm() {
 
       <SubmitButton />
 
-      <Link>Submit</Link>
+      <Link href='/login'>go back</Link>
     </form>
   );
 }

@@ -1,5 +1,5 @@
-import connectionToDB from "../../../lib/db/connection";
-import User from "../../../lib/db/models/User";
+import connectionToDB from "../../../../lib/db/connection";
+import User from "../../../../lib/db/models/User";
 import { NextResponse, NextRequest } from 'next/server'
 
 

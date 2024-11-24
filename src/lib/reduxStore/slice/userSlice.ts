@@ -1,4 +1,4 @@
-import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
+import { createSlice } from '@reduxjs/toolkit'
 import type { PayloadAction } from '@reduxjs/toolkit'
 
 export interface IUser {
@@ -30,7 +30,7 @@ export const userSlice = createSlice({
     logOut: (state) => {
       state.data = initialState.data;
     },
-    login: (state, action: PayloadAction<IUser>) => {
+    login: (state, action: PayloadAction<IUser | undefined>) => {
       state.data = action.payload      
     },
     updateProfilPic: (state, action: PayloadAction<string>) => {

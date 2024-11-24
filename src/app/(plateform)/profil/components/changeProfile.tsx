@@ -1,9 +1,9 @@
 "use client"
 import React,{useRef,useState,useEffect} from 'react'
 import axios from 'axios'
-import { useAppSelector,useAppDispatch } from "../../../lib/reduxStore/hooks.ts";
-import { updateProfilPic } from "../../../lib/reduxStore/slice/userSlice.ts";
-import app from '../../../lib/firebase/app.ts'
+import { useAppSelector,useAppDispatch } from "../../../../lib/reduxStore/hooks.ts";
+import { updateProfilPic } from "../../../../lib/reduxStore/slice/userSlice.ts";
+import app from '../../../../lib/firebase/app.ts'
 import { ref ,uploadBytesResumable,getDownloadURL,getStorage} from "firebase/storage";
 
 
@@ -106,7 +106,7 @@ const handleAvatar = async ()=>{
         className="hidden"
       />
       <button onClick={()=>{handleAvatar()}} className="bg-main w-5/6 text-foreground text-2xl font-bold px-14 py-2 mt-2 rounded-md transition-colors md:text-xl md:w-fit hover:bg-hard">تحديث</button>
-
+      {uploadMsg && <h1>{uploadMsg}</h1>}
     </div>
   );
 }

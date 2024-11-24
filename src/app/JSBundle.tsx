@@ -45,7 +45,7 @@ export  function Anime() {
 
   const [y, setY] = useState(0)
 
-  const handleNavigation = (e)=>{
+  const handleNavigation = ()=>{
 
     const header = document.querySelector("header");
     const scrollPosition = window.scrollY;

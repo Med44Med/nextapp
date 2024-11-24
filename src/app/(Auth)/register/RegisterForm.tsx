@@ -7,7 +7,7 @@ import Link from "next/link";
 import { FaRegEyeSlash, FaRegEye } from "react-icons/fa";
 import { ImSpinner } from "react-icons/im";
 
-import { register } from "./registerAction.ts";
+import { register } from "./registerAction";
 
 function RegisterForm() {
   const [state, registerAction] = useActionState(register, undefined);
@@ -32,14 +32,14 @@ function RegisterForm() {
         required
         autoFocus
       />
-      {state?.errors.username && (<p className="text-red-500 w-5/6 text-sm">{state.errors.username}</p>)}
+      {state?.error?.username && (<p className="text-red-500 w-5/6 text-sm">{state.error.username}</p>)}
       <input
         type="email"
         name="email"
         className="outline-none border-b border-solid border-gray-500 w-5/6 h-10 rounded-none mb-4 px-2 placeholder:text-sm transition-all ease-in focus:border-green-400 focus:border-solid focus:border-b"
         placeholder="email"
       />
-      {state?.errors.email && (<p className="text-red-500 w-5/6 text-sm">{state.errors.email}</p>)}
+      {state?.error?.email && (<p className="text-red-500 w-5/6 text-sm">{state.error.email}</p>)}
       <div className="flex flex-row justify-center items-center w-5/6 mb-4 relative">
         <input
           type={pwdVisible ? "text" : "password"}
@@ -59,7 +59,7 @@ function RegisterForm() {
           />
         )}
       </div>
-      {state?.errors.password && (<p className="text-red-500 w-5/6 text-sm">{state.errors.password}</p>)}
+      {state?.error?.password && (<p className="text-red-500 w-5/6 text-sm">{state.error.password}</p>)}
       <h4 className="w-5/6 font-normal text-sm text-gray-500 select-none">
         you already registred,
         <Link
@@ -70,17 +70,17 @@ function RegisterForm() {
         </Link>
       </h4>
 
-      {/* google */}
+
+      {state?.errorApi && <h1>{state.errorApi}</h1>}
 
       <SubmitButton />
-      {state?.errors && <h1>{state.errors}</h1>}
     </form>
   );
 }
 
 export default RegisterForm;
 
-function SubmitButton() {
+const SubmitButton = ()=>{
   const { pending } = useFormStatus();
 
   return (

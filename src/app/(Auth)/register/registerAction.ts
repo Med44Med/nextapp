@@ -2,11 +2,20 @@
 
 import { z } from "zod";
 import axios from 'axios'
-import { createSession, deleteSession } from "../../../lib/Session";
-import { redirect } from "next/navigation";
 
 const registerURL = "http://localhost:3000/api/users/register"
 
+type stateType ={
+ error?:{
+  username?:string[];
+  email?:string[];
+  password?:string[];
+ };
+ message?:string;
+ status?:number;
+ errorApi?:{message:string};
+
+}
   
   const registerSchema = z.object({
     username: z.string().min(6,{ message: "min 6 lettrs"}).max(10,{ message: "max 10 lettrs"}),
@@ -17,17 +26,20 @@ const registerURL = "http://localhost:3000/api/users/register"
       .trim(),
   });
 
-  export async function register(prevState: unknown, formData: FormData) {
+
+  export async function register(prevState: unknown, formData: FormData) :Promise<stateType> {
       const result = registerSchema.safeParse(Object.fromEntries(formData));
       
-      if (!result.success) { return { errors : result.error.flatten().fieldErrors }}
+      if (!result.success) { return { error : result.error.flatten().fieldErrors }}
     
     
     try {
-        await axios.post(registerURL,result.data)
-    } catch (error) {
-       console.log(error.response.data.message);
-       return {errors : error.response.data.message }
+        const response = await axios.post(registerURL,result.data)
+        const status = response?.status
+        const message = response?.data.message
+        return({status,message})
+    } catch (errorApi) {
+       return {errorApi}
        
     }
     

@@ -1,4 +1,4 @@
-import {deleteSession} from "../../../lib/Session"
+import {deleteSession} from "../../../../lib/Session"
 import { NextResponse } from 'next/server'
 
 export async  function GET(){

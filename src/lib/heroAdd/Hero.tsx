@@ -13,7 +13,7 @@ function Hero({className}) {
 
 
     const renderPoints = (x)=>{
-    //   console.log(x);
+        console.log(x);
     //   for (let i = 0; i < x; i++) {
     //   return <span key={i} x={i+1} style={{width:'10px',height:'10px',borderRaduis:'50%'}} className="cursor-pointer rounded-full transition-transform bg-white hover:scale-150"></span>
     //   }

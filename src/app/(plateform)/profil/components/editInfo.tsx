@@ -2,10 +2,10 @@
 import React,{useActionState,useState,useEffect} from 'react'
 import { useFormStatus } from "react-dom";
 
-import { useAppSelector,useAppDispatch } from "../../../lib/reduxStore/hooks.ts";
-import { login } from "../../../lib/reduxStore/slice/userSlice.ts";
-import {update} from './updateinfoAction.ts'
-import communes from "../../../lib/assets/Communes.json"
+import { useAppSelector,useAppDispatch } from "../../../../lib/reduxStore/hooks.ts";
+import { login } from "../../../../lib/reduxStore/slice/userSlice.ts";
+import {update} from '../updateinfoAction.ts'
+import communes from "../../../../lib/assets/Communes.json"
 
 import { ImSpinner } from "react-icons/im";
 
@@ -37,7 +37,7 @@ const [wilaya, setWilaya] = useState(state?.wilaya || "")
     <div className="bg-transparent border-2 border-solid border-main w-11/12 rounded-md flex flex-col justify-start items-center gap-6 py-6 sm:w-10/12">
       <h1 className="w-full text-xl md:text-2xl px-4">معلومات شخصية:</h1>
       <form action={updateinfoAction} className="flex flex-col justify-start items-center w-5/6 gap-3">
-        <input type="text" name="id" value={id} className="hidden" />
+        <input type="text" name="id" defaultValue={id} className="hidden" />
         <label htmlFor="username" className="w-full md:w-2/3">اسم المستخدم :</label>
         <input
           type="text"
@@ -72,30 +72,31 @@ const [wilaya, setWilaya] = useState(state?.wilaya || "")
         <select
           name="gender"
           className="w-full md:w-2/3 h-10 rounded-sm text-black mb-4 px-2 outline-none"
+          defaultValue={state?.gender}
         >
           <option value=""></option>
-          <option value="male" selected={state?.gender === "male" ? true : false} >ذكر</option>
-          <option value="female" selected={state?.gender === "female" ? true : false} >أنثى</option>
+          <option value="male"  >ذكر</option>
+          <option value="female">أنثى</option>
         </select>
       
         <label htmlFor="lastname" className="w-full md:w-2/3">ولاية :</label>
-        <select name="wilaya" onChange={e=>{setWilaya(e.target.value)}} className="outline-none w-full md:w-2/3 h-10 rounded-sm text-black mb-4 px-2">
+        <select name="wilaya" defaultValue={state?.wilaya} onChange={e=>{setWilaya(e.target.value)}} className="outline-none w-full md:w-2/3 h-10 rounded-sm text-black mb-4 px-2">
                 <option value="">الرجاء اختيار الولاية</option>
                 {communes.filter((obj,index,self)=>{
                   return index === self.findIndex((o)=> o.wilaya_name_ascii === obj.wilaya_name_ascii)
                 })
                 .map((wilaya)=>(
-                  <option key={wilaya.id} value={wilaya.wilaya_name_ascii} selected={state?.wilaya === wilaya.wilaya_name_ascii ? true : false}>
+                  <option key={wilaya.id} value={wilaya.wilaya_name_ascii}>
                     {wilaya.wilaya_name}
                   </option>
                 ))}
         </select>
         <label htmlFor="lastname" className="w-full md:w-2/3">البلدية :</label>
-        <select name="commune" className="outline-none w-full md:w-2/3 h-10 rounded-sm text-black mb-4 px-2">
+        <select name="commune" defaultValue={state?.commune} className="outline-none w-full md:w-2/3 h-10 rounded-sm text-black mb-4 px-2">
                 <option value="">الرجاء اختيار البلدية</option>
                 {communes.filter((value)=>{return value.wilaya_name_ascii === wilaya})
                          .map((commune)=>(
-                          <option key={commune.id} value={commune.commune_name_ascii} selected={state?.commune === commune.commune_name_ascii ? true : false }>
+                          <option key={commune.id} value={commune.commune_name_ascii}>
                             {commune.commune_name}
                           </option>
                          ))
