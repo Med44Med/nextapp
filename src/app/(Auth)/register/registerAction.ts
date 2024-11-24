@@ -5,7 +5,7 @@ import axios from 'axios'
 import { createSession, deleteSession } from "../../../lib/Session";
 import { redirect } from "next/navigation";
 
-
+const registerURL = "http://localhost:3000/api/users/register"
 
   
   const registerSchema = z.object({
@@ -24,7 +24,7 @@ import { redirect } from "next/navigation";
     
     
     try {
-        await axios.post("http://localhost:3000/api/register",result.data)
+        await axios.post(registerURL,result.data)
     } catch (error) {
        console.log(error.response.data.message);
        return {errors : error.response.data.message }

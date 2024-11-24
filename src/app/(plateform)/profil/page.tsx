@@ -1,7 +1,10 @@
-import ChangeProfile from './changeProfile'
-import EditInfo from './editInfo'
-import EditPass from './editPass'
-import DeleteAccount from './deleteaccount'
+import ChangeProfile from './components/changeProfile'
+import EditInfo from './components/editInfo'
+import EditPass from './components/editPass'
+import DeleteAccount from './components/deleteaccount'
+
+
+
 function Dashboard() {
   
 
@@ -11,9 +14,6 @@ function Dashboard() {
       <EditInfo />
       <EditPass />
       <DeleteAccount />
-      {/* 
-      <div>delete account</div> */}
-
     </div>
   )
 }

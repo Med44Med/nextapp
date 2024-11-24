@@ -23,28 +23,32 @@ function ForgotForm() {
   
 
   return (
-    <form action={forgotAction} className="bg-white text-black w-96 flex-grow rounded-md px-2 py-10 flex flex-col justify-start items-center shadow-md">
-        <div className="flex flex-row justify-center items-center w-5/6 mb-4 relative">
-            <input
-                type="email"
-                name="email"
-                className="flex-grow outline-none border-b border-solid border-gray-500 w-full h-10 rounded-none  px-2 placeholder:text-sm transition-all duration-300 ease-in focus:border-green-400 focus:border-solid focus:border-b"
-                placeholder='Email'
-                autoFocus
-            />
-        </div>
-        <h4 className='w-5/6 font-normal text-sm text-gray-500 select-none'>
-            you don't have an account,
-            <Link href="/login" className='text-gray-700 font-bold transition-all ease-out hover:text-black hover:underline select-none'>
-                Login
-            </Link>
-      </h4>
-      
-      
-    
-        <SubmitButton />
+    <form
+      action={forgotAction}
+      className="bg-white text-black w-96 flex-grow rounded-md px-2 py-10 flex flex-col justify-start items-center shadow-md"
+    >
+      <div className="flex flex-row justify-center items-center w-5/6 mb-4 relative">
+        <label 
+          htmlFor="" 
+          className=""
+          >
+          email
+        </label>
+        <input
+          type="email"
+          name="email"
+          className="flex-grow outline-none border-b border-solid border-gray-500 w-full h-10 rounded-none  px-2 placeholder:text-sm transition-all duration-300 ease-in focus:border-green-400 focus:border-solid focus:border-b"
+          placeholder="Email"
+          autoFocus
+        />
+      </div>
+      {state?.error?.email && <h4 className="w-5/6 font-normal text-sm text-red-500 select-none">{state.error.email}</h4>}
+
+      <SubmitButton />
+
+      <Link>Submit</Link>
     </form>
-  )
+  );
 }
 
 export default ForgotForm
@@ -64,7 +68,9 @@ function SubmitButton() {
             <ImSpinner className="animate-spin" />
           </>
         ) : (
-          "Login"
+          <>
+            Submit
+          </>
         )}
       </button>
     );
