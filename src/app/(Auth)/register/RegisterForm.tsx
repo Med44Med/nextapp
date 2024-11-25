@@ -71,7 +71,7 @@ function RegisterForm() {
       </h4>
 
 
-      {state?.errorApi && <h1>{state.errorApi}</h1>}
+      {state?.errorApi?.message && <h1>{state.errorApi.message}</h1>}
 
       <SubmitButton />
     </form>

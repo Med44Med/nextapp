@@ -1,26 +1,26 @@
 "use client"
 import React,{useRef,useState,useEffect} from 'react'
 import axios from 'axios'
-import { useAppSelector,useAppDispatch } from "../../../../lib/reduxStore/hooks.ts";
-import { updateProfilPic } from "../../../../lib/reduxStore/slice/userSlice.ts";
-import app from '../../../../lib/firebase/app.ts'
+import { useAppSelector,useAppDispatch } from "../../../../lib/reduxStore/hooks";
+import { updateProfilPic,IUser} from "../../../../lib/reduxStore/slice/userSlice";
+import app from '../../../../lib/firebase/app'
 import { ref ,uploadBytesResumable,getDownloadURL,getStorage} from "firebase/storage";
 
 
 const ChangeProfilePic = () => {
 
   const dispatch= useAppDispatch()
-  const data = useAppSelector (state => state.user.data)
+  const data : IUser = useAppSelector (state => state.user.data)
   const id = data.id
   
 //profil picture handler
 
   const profilePictureRef = useRef(null)
   
-  const [profilPic,setProfilPic] = useState()
+  const [profilPic,setProfilPic] = useState<Blob | null>()
   const [isUploading,setIsUploading] = useState(false)
   const [uploadPercent,setIsUploadPercent] = useState(0)
-  const [uploadMsg,setIsUploadMsg] = useState("")
+  const [uploadMsg,setIsUploadMsg] = useState<string | null>(null)
   const [profilUrl,setProfilUrl] = useState("")
 
   const storage = getStorage(app);
@@ -30,7 +30,7 @@ const ChangeProfilePic = () => {
       return;
     } else {
       if (profilPic.size > 5242880) {
-        alert("please choos a picture < 5MB");
+        alert("please choos a picture smaller than 5MB");
       } else {      
         setIsUploading(true);
         const storageRef = ref(storage, `profilePictures/${id}`);
@@ -43,7 +43,8 @@ const ChangeProfilePic = () => {
           },
           (error) => {
             console.log(error);
-            setIsUploadMsg(error)
+            setIsUploadMsg(error.message)
+            setIsUploading(false);
           },
           () => {
             getDownloadURL(uploading.snapshot.ref).then((downloadURL) => {

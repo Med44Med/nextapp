@@ -3,10 +3,10 @@
 import Link from 'next/link' 
 import {usePathname,useRouter} from 'next/navigation'
 import axios from 'axios'
-import { useAppSelector,useAppDispatch} from '../../lib/reduxStore/hooks.ts'
-import { logOut} from '../../lib/reduxStore/slice/userSlice.ts'
+import { useAppSelector,useAppDispatch} from '../../lib/reduxStore/hooks'
+import { logOut} from '../../lib/reduxStore/slice/userSlice'
 import { RiLogoutCircleRLine } from "react-icons/ri";
-
+import {IUser} from '../../lib/reduxStore/slice/userSlice'
 
 
 export default function PlateformLayout({children}: { children: React.ReactNode }) {
@@ -15,7 +15,7 @@ export default function PlateformLayout({children}: { children: React.ReactNode 
   const router = useRouter()
   const dispatch = useAppDispatch()
 
-  const data = useAppSelector (state => state.user.data)
+  const data : IUser = useAppSelector (state => state.user.data)
 
   
   const NavLinks = [

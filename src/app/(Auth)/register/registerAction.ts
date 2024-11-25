@@ -7,13 +7,15 @@ const registerURL = "http://localhost:3000/api/users/register"
 
 type stateType ={
  error?:{
-  username?:string[];
-  email?:string[];
-  password?:string[];
- };
+          username?:string[];
+          email?:string[];
+          password?:string[];
+        };
  message?:string;
  status?:number;
- errorApi?:{message:string};
+ errorApi?:{
+            message:string
+           };
 
 }
   
@@ -39,7 +41,9 @@ type stateType ={
         const message = response?.data.message
         return({status,message})
     } catch (errorApi) {
-       return {errorApi}
+       return {
+        errorApi: { message: (errorApi as Error).message },
+    }
        
     }
     
