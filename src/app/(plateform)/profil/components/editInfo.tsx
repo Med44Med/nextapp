@@ -2,9 +2,9 @@
 import React,{useActionState,useState,useEffect} from 'react'
 import { useFormStatus } from "react-dom";
 
-import { useAppSelector,useAppDispatch } from "../../../../lib/reduxStore/hooks.ts";
-import { login } from "../../../../lib/reduxStore/slice/userSlice.ts";
-import {update} from '../updateinfoAction.ts'
+import { useAppSelector,useAppDispatch } from "../../../../lib/reduxStore/hooks";
+import { login,IUser } from "../../../../lib/reduxStore/slice/userSlice";
+import {update} from '../updateinfoAction'
 import communes from "../../../../lib/assets/Communes.json"
 
 import { ImSpinner } from "react-icons/im";
@@ -12,10 +12,9 @@ import { ImSpinner } from "react-icons/im";
 
 const EditInfo = () => {
   const dispatch = useAppDispatch()
-  const data = useAppSelector (state => state.user.data)
+  const data : IUser = useAppSelector (state => state.user.data)
   const id = data.id
   const user = {...data}
-  console.log(user);
   
 //profil picture handler
 

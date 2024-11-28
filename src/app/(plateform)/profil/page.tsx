@@ -1,6 +1,6 @@
 import ChangeProfile from './components/changeProfile'
 import EditInfo from './components/editInfo'
-import EditPass from './components/editPass'
+import EditPass from './components/editpass'
 import DeleteAccount from './components/deleteaccount'
 
 

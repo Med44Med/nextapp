@@ -32,8 +32,8 @@ export async function POST(req: NextRequest){
             commune: user.commune,
             address:user.address,
             tel:user.tel,
-            created_at:user.created_at,
-            updated_at:user.updated_at
+            createdAt:user.created_at,
+            updatedAt:user.updated_at
         }
         
         // createSession(data.id.toString(),data.role)

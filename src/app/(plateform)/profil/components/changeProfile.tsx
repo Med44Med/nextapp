@@ -15,7 +15,7 @@ const ChangeProfilePic = () => {
   
 //profil picture handler
 
-  const profilePictureRef = useRef(null)
+  const profilePictureRef = useRef<HTMLInputElement>(null)
   
   const [profilPic,setProfilPic] = useState<Blob | null>()
   const [isUploading,setIsUploading] = useState(false)
@@ -74,7 +74,7 @@ const handleAvatar = async ()=>{
       <h1 className="w-full text-xl md:text-2xl px-4">تحديث صورتك :</h1>
       <div
         onClick={() => {
-          profilePictureRef.current.click();
+          profilePictureRef?.current?.click();
         }}
         className="h-32 aspect-square rounded-full bg-foreground flex flex-col justify-center items-center cursor-pointer relative"
       >
@@ -101,6 +101,7 @@ const handleAvatar = async ()=>{
         type="file"
         accept="image/png,image/jpeg"
         onChange={(e) => {
+          if (!e.target.files) {return;}
           setProfilPic(e.target.files[0]);
         }}
         ref={profilePictureRef}

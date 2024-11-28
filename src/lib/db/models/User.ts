@@ -7,15 +7,16 @@ interface IUser {
     username:string;
     email:string;
     password:string;
-    avatar:string;
-    createdAt:Date;
-    updatedAt:Date;
-    firstname:string;
-    lastname:string;
-    gender:string;
-    wilaya:string;
-    commune:string;
-    address:string;
+    avatar?:string;
+    created_at:Date;
+    updated_at:Date;
+    firstname?:string;
+    lastname?:string;
+    gender?:string;
+    wilaya?:string;
+    commune?:string;
+    address?:string;
+    birthdate?:Date;
     tel:string;
  }
 
@@ -58,7 +59,6 @@ const userSchema = new Mongoose.Schema(
             },
             birthdate:{
                 type:Date,
-                default:""
             },
             wilaya:{
                 type:String,
@@ -83,7 +83,7 @@ const userSchema = new Mongoose.Schema(
 )
 
 interface IUserDocument extends IUser, Document{}
-type IUserModel = Model<IUserDocument>
+export type IUserModel = Model<IUserDocument>
 
 const User: IUserModel = Mongoose.models.nextUser || Mongoose.model<IUserDocument>("nextUser", userSchema);
 

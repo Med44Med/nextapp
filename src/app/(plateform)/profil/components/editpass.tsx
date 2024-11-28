@@ -1,17 +1,18 @@
 "use client"
 import React,{useActionState} from 'react'
 import { useFormStatus } from "react-dom";
-import { useAppSelector } from "../../../../lib/reduxStore/hooks.ts";
-
+import { useAppSelector } from "../../../../lib/reduxStore/hooks";
+import {IUser} from "../../../../lib/reduxStore/slice/userSlice"
 import { ImSpinner } from "react-icons/im";
 
 
 
-import {updatePass} from '../updateinfoAction.ts'
+import {updatePass} from '../updateinfoAction'
 
 const EditPass = () => {
 
-  const id = useAppSelector (state => state.user.data.id)
+  const data : IUser = useAppSelector (state => state.user.data)
+  const id= data.id
   
 
   const [state,updatePassAction] = useActionState(updatePass,undefined)

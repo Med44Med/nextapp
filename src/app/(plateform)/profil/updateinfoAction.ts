@@ -4,6 +4,11 @@ import {createSession} from '../../../lib/Session'
 import { z } from "zod";
 
 
+const updateInfoURl = "http://localhost:3000/api/updateinfo"
+const updatePassURl = 'http://localhost:3000/api/updatepass'
+
+type AnyObject = Record<string, unknown>;
+
 const updatePassSchema = z.object({
   oldpass: z
             .string()
@@ -28,35 +33,38 @@ const updatePassSchema = z.object({
 
 
 
-export async function update(prevState: unknown, formData: FormData) {
-  const data = Object.fromEntries(formData)
+export async function update(_: unknown, formData: FormData) {
+  const data = Object.fromEntries(formData) as Record<string, string>;
 
   
 
 
-function filter(obj) {
-  return Object.entries(obj).reduce((acc, [key, value]) => {
+function filter(obj: AnyObject) : AnyObject {
+  return Object.entries(obj).reduce((acc : AnyObject, [key, value]) => {
       if (value !== "" && value !== undefined && value!== null) {
-          acc[key] = typeof value === 'object' ? filter(value) : value;
+          acc[key] = value;
       }
       return acc;
   }, {});
 }
 
 const filteredData = filter(data)
-try {
-  const response = await axios.put('http://localhost:3000/api/updateinfo',filteredData)
-  const {id,role} = response?.data?.data
-  await createSession(id,role)
-  const status = response?.status
-  const data = response?.data
-  return ({status,...data});
-} catch (error) {
-  return ({error})
-}
+  try {
+    const response = await axios.put(updateInfoURl, filteredData);
+    const { id, role } = response?.data?.data;
+    await createSession(id, role);
+    const status = response?.status;
+    const data = response?.data;
+    return { status, ...data };
+  } catch (error : unknown) {
+    if (axios.isAxiosError(error)) {
+      return { error: error.response?.data || error.message };
+    }
+    return { error: "An unexpected error occurred" };
+  }
 }
 
-export async function updatePass(prevState: unknown, formData: FormData) {
+export async function updatePass(_: unknown, formData: FormData) {
 
   const {id} =Object.fromEntries(formData);
 
@@ -71,13 +79,16 @@ export async function updatePass(prevState: unknown, formData: FormData) {
   }
 
   try {
-    const response = await axios.put('http://localhost:3000/api/updatepass',data);
+    const response = await axios.put(updatePassURl,data);
     const {id,role} = response?.data?.data
     await createSession(id,role)
     const status = response?.status
   return ({status});
   } catch (error) {
-    return ({error})
+    if (axios.isAxiosError(error)) {
+      return { error: error.response?.data || error.message };
+    }
+    return { error: "An unexpected error occurred" };
   }
 }
         
