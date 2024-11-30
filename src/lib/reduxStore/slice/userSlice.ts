@@ -9,17 +9,21 @@ export interface IUser {
   avatar?: string
   firstname?:string
   lastname?:string
-  birthdate?:date
+  birthdate?:Date
   gender?:string
   phone?:string
   wilaya?:string
   commune?:string
   address?:string
-  created_at?:date
-  updated_at?:date
+  createdAt?:Date
+  updatedAt?:Date
 }
 
-const initialState  = {
+interface UserState {
+  data: IUser; // The `data` property must conform to the IUser interface
+}
+
+const initialState : UserState = {
   data:{}
 }
 
@@ -30,11 +34,12 @@ export const userSlice = createSlice({
     logOut: (state) => {
       state.data = initialState.data;
     },
-    login: (state, action: PayloadAction<IUser | undefined>) => {
+    login: (state, action: PayloadAction<IUser>) => {
       state.data = action.payload      
     },
     updateProfilPic: (state, action: PayloadAction<string>) => {
-      state.data.avatar = action.payload      
+      state.data.avatar = action.payload
+
     }
   }
 })

@@ -1,9 +1,8 @@
 
 import Link from "next/link";
-import  {Anime,ThemeHandler}  from "./JSBundle";
-
+import ThemeHandler  from "./_components/themeHandler";
 import  Hero  from "../lib/heroAdd/Hero";
-
+import Anime from "./_components/anime"
 export default async  function Home() {
   
   if (typeof window !== 'undefined') {
@@ -12,7 +11,7 @@ export default async  function Home() {
     console.log("Running on the server side");
   }
   
-
+  // Anime();
   
   return (
     <main className="flex flex-col justify-start items-center  bg-background overflow-y-hidden">
@@ -45,7 +44,6 @@ export default async  function Home() {
       <footer>
         footer
       </footer>
-      <Anime />
     </main>
   );
 }

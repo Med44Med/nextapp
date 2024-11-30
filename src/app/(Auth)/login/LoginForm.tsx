@@ -21,6 +21,9 @@ function LoginForm() {
 
  useEffect(() => {
   if (state?.status === 200) {
+    if (!state.data) {
+      return
+    }
     dispatch(login(state?.data))
     router.push('/dashboard')
   }

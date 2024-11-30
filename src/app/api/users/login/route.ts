@@ -14,10 +14,14 @@ export async function POST(req: NextRequest){
 
         const user = await User.findOne({ email });
         if (!user) { return NextResponse.json({ message: "email  is wrong!" },{status:410}); }
+        console.log(user);
         
         const checkPassword = bcryptjs.compareSync(password,user.password)
+        console.log(checkPassword);
+        
         if (!checkPassword) { return NextResponse.json({ message: "email or password is wrong!" },{status:410}); }
-
+        
+        console.log('hello x2');
         const data = {
             id:user._id,
             username:user.username,
@@ -32,8 +36,8 @@ export async function POST(req: NextRequest){
             commune: user.commune,
             address:user.address,
             tel:user.tel,
-            createdAt:user.created_at,
-            updatedAt:user.updated_at
+            createdAt:user.createdAt,
+            updatedAt:user.updatedAt
         }
         
         // createSession(data.id.toString(),data.role)

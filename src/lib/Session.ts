@@ -27,6 +27,7 @@ export async function deleteSession() {
 
 type SessionPayload = {
   userId: string;
+  role: string;
   expiresAt: Date;
 };
 
