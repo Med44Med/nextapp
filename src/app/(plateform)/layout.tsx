@@ -8,6 +8,7 @@ import { logOut} from '../../lib/reduxStore/slice/userSlice'
 import { RiLogoutCircleRLine } from "react-icons/ri";
 import {IUser} from '../../lib/reduxStore/slice/userSlice'
 
+const logOutURL = "http://localhost:3000/api/users/logout"
 
 export default function PlateformLayout({children}: { children: React.ReactNode }) {
 
@@ -17,6 +18,7 @@ export default function PlateformLayout({children}: { children: React.ReactNode 
 
   const data : IUser = useAppSelector (state => state.user.data)
 
+  console.log(data.role)
   
   const NavLinks = [
     {href: '/dashboard', label: 'Dashboard'},
@@ -31,7 +33,7 @@ export default function PlateformLayout({children}: { children: React.ReactNode 
   ]
 
   const handleLogOUt =()=>{
-    axios.get('/api/logout')
+    axios.get(logOutURL)
     dispatch(logOut())
     router.push('/')
   }
@@ -42,12 +44,12 @@ export default function PlateformLayout({children}: { children: React.ReactNode 
           <h1 className="text-center text-base select-none" >welcome back<br/><Link href="/profil" className="text-xl font-bold">{data?.username}</Link></h1>
           <nav className="flex flex-col gap-1 w-full h-full pr-4">
             {NavLinks.map(link=>(
-              <Link key={link.href} href={link.href} className={`font-bold w-full text-foreground rounded-r-lg text-xl py-3 px-8  text-center bg-transparent transition-colors hover:bg-hard [&.active]:bg-background ${path === link.href ? 'active' : ''}`}>
+              <Link key={link.href} href={link.href} className={`font-bold w-full text-foreground rounded-r-lg text-xl py-3 px-8  text-center bg-transparent transition-colors hover:bg-hard [&.active]:bg-hard ${path === link.href ? 'active' : ''}`}>
                 {link.label}
               </Link>
             ))}
             {SecLinks.map(link=>(
-              <Link key={link.href} href={link.href} className={`font-bold w-full text-foreground rounded-r-md text-base py-2 text-center bg-transparent transition-colors hover:bg-hard [&.active]:bg-background ${path === link.href ? 'active' : ''}`}>
+              <Link key={link.href} href={link.href} className={`font-bold w-full text-foreground rounded-r-md text-base py-2 text-center bg-transparent transition-colors hover:bg-hard [&.active]:bg-hard ${path === link.href ? 'active' : ''}`}>
                 {link.label}
               </Link>
             ))}

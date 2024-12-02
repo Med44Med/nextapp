@@ -24,7 +24,7 @@ function LoginForm() {
     if (!state.data) {
       return
     }
-    dispatch(login(state?.data))
+    dispatch(login(state?.data?.data))
     router.push('/dashboard')
   }
  }, [state])

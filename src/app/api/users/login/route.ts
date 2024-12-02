@@ -11,19 +11,17 @@ export async function POST(req: NextRequest){
         await connectionToDB();
 
         const {email,password} = await req.json();
+        if (!email || !password) { return NextResponse.json({ message: "Email and password are required." },{status:400}); }
 
         const user = await User.findOne({ email });
-        if (!user) { return NextResponse.json({ message: "email  is wrong!" },{status:410}); }
-        console.log(user);
+        if (!user) { return NextResponse.json({ message: "email  is wrong!" },{status:401}); }
         
-        const checkPassword = bcryptjs.compareSync(password,user.password)
-        console.log(checkPassword);
+        const checkPassword = await bcryptjs.compare(password,user.password)
         
-        if (!checkPassword) { return NextResponse.json({ message: "email or password is wrong!" },{status:410}); }
+        if (!checkPassword) { return NextResponse.json({ message: "email or password is wrong!" },{status:401}); }
         
-        console.log('hello x2');
         const data = {
-            id:user._id,
+            id:user._id.toString(),
             username:user.username,
             email:user.email,
             role:user.role,
