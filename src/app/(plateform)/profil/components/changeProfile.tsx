@@ -5,7 +5,7 @@ import { useAppSelector,useAppDispatch } from "../../../../lib/reduxStore/hooks"
 import { updateProfilPic,IUser} from "../../../../lib/reduxStore/slice/userSlice";
 import app from '../../../../lib/firebase/app'
 import { ref ,uploadBytesResumable,getDownloadURL,getStorage} from "firebase/storage";
-
+import Image from 'next/image'
 
 const ChangeProfilePic = () => {
 
@@ -86,10 +86,13 @@ const handleAvatar = async ()=>{
             }turn, var(--foreground) 0turn)`,
           }}
         ></div>
-        <img
+        <Image
           className="absolute top-1/2 left-1/2 -translate-y-1/2 w-11/12 -translate-x-1/2 aspect-square bg-cover rounded-full z-10"
-          src={data.avatar}
+          // src={data.avatar}
+          src="https://placehold.co/600x400.png?text=MB"
           alt="logo"
+          width={100}
+          height={100}
         />
         {isUploading && (
           <div className="absolute top-1/2 left-1/2 -translate-y-1/2 w-11/12 -translate-x-1/2 aspect-square rounded-full z-20 bg-soft flex justify-center items-center font-bold text-5xl">
