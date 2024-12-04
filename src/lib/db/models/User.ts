@@ -6,6 +6,8 @@ export interface IUser extends  Document {
     role:string;
     username:string;
     email:string;
+    activeCode:number;
+    activated:boolean;
     password:string;
     avatar?:string;
     createdAt:Date;
@@ -36,6 +38,14 @@ const userSchema : Schema = new mongoose.Schema<IUser>(
             password:{
                 type:String,
                 required:true
+            },
+            activeCode:{
+                type:Number,
+                default:""
+            },
+            activated:{
+                type:Boolean,
+                default:false
             },
             role:{
                 type:String,
