@@ -27,19 +27,23 @@ export async function POST(req: NextRequest){
 
         
         const user = new User({username,email,password:hashedPassword,activeCode});
-        await user.save()
+        // await user.save()
 
-        //check email
         
-        const sendEmail = CheckEmails({username,email,activeCode})
-        if (!sendEmail) {
-            
+        //check email
+
+        const sendEmail = await CheckEmails({username,email,activeCode})
+        console.log(sendEmail);
+        
+        if (sendEmail !== "ok") {
+            return NextResponse.json({message:'somthing went wrong!'},{status:401})
+        } else {
+            return NextResponse.json({message:'user created successfuly'},{status:201})
         }
         
-        return NextResponse.json({message:'user created successfuly'},{status:201})
+            // return NextResponse.json({message:'user created successfuly'},{status:201})
 
     } catch (error) {
-
         console.log(error);
         return NextResponse.json({error},{status:500})
     }

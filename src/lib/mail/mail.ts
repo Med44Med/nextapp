@@ -1,9 +1,5 @@
 import Mailjet from 'node-mailjet'
 
-const mailjet = new Mailjet({
-    apiKey: process.env.MAILJET_API_KEY,
-    apiKey: process.env.MAILJET_SECRET_KEY
-})
 
 type mailFunc = {
     email:string;
@@ -11,16 +7,22 @@ type mailFunc = {
     activeCode:number;
 }
 
-export function CheckEmails({email,username,activeCode}:mailFunc):boolean {
-
-    const email = mailjet
+export async function CheckEmails({email,username,activeCode}:mailFunc) {
+    const mailjet = new Mailjet({
+        apiKey: process.env.MAILJET_API_KEY,
+        apiSecret: process.env.MAILJET_SECRET_KEY
+    })
+    
+try {
+    
+    const emailSend = await mailjet
                         .post('send', { version: 'v3.1' })
                         .request({
-                            "Messages": [
+                            Messages: [
                                 {
                                     From: {
                                         Email: "mstgci4@gmail.com",
-                                        Name: "Dorossi"
+                                        Name: "Dorossi support"
                                         },
                                     To: [
                                             {
@@ -29,17 +31,17 @@ export function CheckEmails({email,username,activeCode}:mailFunc):boolean {
                                             }
                                         ],
                                     Subject: "Activation account",
-                                    HTMLPart: `<h1>your activation code is : ${activeCode}</h1>`
+                                    TextPart: `Hello ${username},\n\nYour activation code is: ${activeCode}`,
+                                    HTMLPart: `<h1>ciao</h1>`
                                 }
                             ]
                         })
-    }
     
-    email.then((result)=>{
-            console.log(result.body);
-            return true
-        })
-        .catch((err)=>{
-            log(err.status.code)
-            return false
-        }) 
+                        console.log("success:", emailSend.body);
+                        return { status: 'ok' };
+                
+                    } catch (err) {
+                        console.log("error:", err);
+                        return { status: 'nonok' };
+                    }
+                }
