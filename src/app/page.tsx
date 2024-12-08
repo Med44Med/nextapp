@@ -2,7 +2,10 @@
 import Link from "next/link";
 import ThemeHandler  from "./_components/themeHandler";
 import  Hero  from "../lib/heroAdd/Hero";
-import Anime from "./_components/anime"
+import Anime from './_components/anime';
+
+
+
 export default async  function Home() {
   
   if (typeof window !== 'undefined') {

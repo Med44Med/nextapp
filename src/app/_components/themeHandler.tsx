@@ -1,17 +1,20 @@
-"use client"
+'use client'
 
-import {useEffect} from 'react'
-import { useLocalStorage } from "@uidotdev/usehooks";
+import {useEffect,useState} from 'react'
+import { useLocalStorage } from "../../lib/assets/useLocalStorage";
 import { MdDarkMode,MdLightMode  } from "react-icons/md";
+
 
 
 export default function ThemeHandler(){
 
     const [theme,changeTheme]=useLocalStorage<string | null>("theme",null)
-  
-    const darkModeprefered = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    const [darkModeprefered,setDarkModeprefered]=useState<string | null>(null)
     
     useEffect(()=>{
+
+      setDarkModeprefered(window.matchMedia('(prefers-color-scheme: dark)').matches)
+
       if (darkModeprefered && theme === null ) {
         changeTheme("dark")
       } 
