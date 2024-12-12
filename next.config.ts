@@ -6,9 +6,8 @@ const nextConfig: NextConfig = {
     remotePatterns: [
       {
         protocol: 'https',
-        hostname: 'placehold.co',
-        port: '',
-        pathname: '/*',
+        hostname: 'firebasestorage.googleapis.com',
+        pathname: '/v0/b/bacup-9d661.appspot.com/**',
       },
     ],
   },

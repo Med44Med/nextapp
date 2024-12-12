@@ -1,5 +1,4 @@
 
-import Link from "next/link";
 import Header  from "../lib/components/header/header";
 import  Hero  from "../lib/heroAdd/Hero";
 import Anime from './_components/anime';
