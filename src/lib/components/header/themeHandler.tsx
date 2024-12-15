@@ -1,7 +1,7 @@
 'use client'
 
 import {useEffect,useState} from 'react'
-import { useLocalStorage } from "../../lib/assets/useLocalStorage";
+import { useLocalStorage } from "../../assets/useLocalStorage";
 import { MdDarkMode,MdLightMode  } from "react-icons/md";
 
 
@@ -30,10 +30,11 @@ export default function ThemeHandler(){
     },[theme])
     
     return (
-      <>
-        {theme === "dark" && <MdLightMode className="cursor-pointer" onClick={()=>changeTheme("light")}/>}
-        {theme === "light" && <MdDarkMode className="cursor-pointer" onClick={()=>changeTheme("dark")}/>}
-      </>
+      <div className="relative w-full px-3 py-3 border border-main flex justify-center items-center rounded-2xl overflow-hidden">
+        <MdLightMode className={`grow bg-transparent z-10 ${theme === 'light' ? "text-foreground" : "text-background" }`} onClick={()=>changeTheme("light")}/>
+        <MdDarkMode className={`grow bg-transparent z-10  ${theme === 'dark' ? "text-foreground" : "text-background"}`} onClick={()=>changeTheme("dark")}/>
+        <div className={`absolute top-0 left-0 h-full w-1/2 z-0 rounded-2xl bg-main  duration-300 ease-out transition-transform ${theme === 'light' && 'translate-x-full'}`}></div>
+      </div>
   )
   }
   
