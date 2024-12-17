@@ -60,10 +60,6 @@ body::-webkit-scrollbar-thumb {
   cursor: pointer;
 }
 
-header.hide{
-  transform: translateY(-100%);
-}
-
 
 
 .scrollBar::-webkit-scrollbar

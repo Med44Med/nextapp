@@ -5,14 +5,13 @@ import ThemeHandler from './themeHandler';
 import ResponsiveHeader from './responsiveHeader';
 
 import { LuSettings2 } from "react-icons/lu";
-import { IoIosMenu ,IoMdClose } from "react-icons/io";
 
 
 
 function Header() {
 
   return (
-    <header className="fixed w-full md:h-20 md:px-4 bg-white md:bg-transparent z-50 flex items-center md:justify-start transition-all delay-100 justify-between h-16">
+    <header className="fixed w-full md:h-20 md:px-4 bg-white md:bg-transparent z-50 flex items-center md:justify-start transition-all delay-100 justify-between h-16 shadow-md md:shadow-none md:[&.hide]:-translate-y-full">
         <div className="h-full w-1/3 md:w-1/5 bg-white text-black flex justify-center items-center">Dorossi</div>
         <nav className="hidden md:flex flex-row w-[55%] justify-evenly items-center">
             <Link href='/'>Link1</Link>
