@@ -18,8 +18,8 @@ function HeaderLoginStatus() {
     
     if(!session) {  return (
             <div className="flex flex-row h-2/3 items-center justify-center gap-3">
-                <Link href='/login' className="font-bold text-lg font-main border border-foreground rounded-3xl px-3 py-3 transition-all hover:bg-main">تسجيل الدخول</Link>
-                <Link href='/register' className="font-bold text-lg font-main border border-foreground rounded-3xl bg-main px-3 py-3 transition-all text-foreground hover:border-main hover:bg-foreground hover:text-main">إنشاء حساب</Link>
+                <Link href='/login' className="font-bold text-md text-nowrap font-main border border-foreground rounded-3xl px-3 py-3 transition-all hover:bg-main">تسجيل الدخول</Link>
+                <Link href='/register' className="font-bold text-md text-nowrap font-main border border-foreground rounded-3xl bg-main px-3 py-3 transition-all text-foreground hover:border-main hover:bg-foreground hover:text-main">إنشاء حساب</Link>
             </div>
     )} else {
         return (

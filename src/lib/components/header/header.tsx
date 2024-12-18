@@ -20,7 +20,7 @@ function Header() {
         </nav> 
         <div className="h-full w-1/4 hidden md:flex justify-end items-center gap-5 ">
           <div className="group relative p-6 flex h-2/3 items-center justify-center cursor-pointer rounded-full transition-all border border-foreground hover:bg-main">
-            <LuSettings2 className="scale-150"/>
+            <LuSettings2 className="scale-125"/>
             <div className="absolute bg-foreground text-background top-[120%] left-0 w-[250px] overflow-hidden rounded-3xl shadow-md transition-all flex flex-col items-center gap-3 border-2 border-main max-h-0 p-0 opacity-0 group-hover:max-h-fit group-hover:p-3 group-hover:opacity-100">
               <ThemeHandler />
               <div className="relative w-full  border border-main flex flex-row-reverse justify-center items-center rounded-2xl overflow-hidden">
