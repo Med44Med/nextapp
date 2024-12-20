@@ -5,17 +5,18 @@ import Link from 'next/link';
 import { IoIosMenu, IoMdClose } from 'react-icons/io';
 
 
-function ResponsiveHeader() {
+function ResponsiveHeader({mainLinks}) {
 
     const [show, setShow] = useState(false)
-
+    console.log(mainLinks);
+    
   return (
     <div className="pl-10 md:hidden">
       <IoIosMenu
         onClick={() => {
           setShow(true);
         }}
-        className="scale-[2.5]"
+        className="scale-[2.5] text-background"
       />
       <div className={`${show && "show"} fixed -left-full top-0 w-full h-full flex items-start justify-center transition-all [&.show]:translate-x-full`}>
         <div
@@ -27,9 +28,9 @@ function ResponsiveHeader() {
           </div>
         </div>
         <div className="bg-background h-full grow flex flex-col items-center justify-start gap-10 py-20 rounded-bl-xl">
-          <Link href="/" className="font-bold font-main text-xl w-10/12 text-center py-3 border-b border-foreground after:content-['']">Link1</Link>
-          <Link href="/" className="font-bold font-main text-xl w-10/12 text-center py-3 border-b border-foreground after:content-['']">Link2</Link>
-          <Link href="/" className="font-bold font-main text-xl w-10/12 text-center py-3 border-b border-foreground after:content-['']">Link3</Link>
+          {mainLinks.map(link => { 
+            return <Link key={link.name} href={link.link} className="font-bold font-main text-xl w-10/12 text-center py-3 border-b border-foreground after:content-['']">{link.name}</Link>
+          })}
         </div>
       </div>
     </div>
