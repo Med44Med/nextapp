@@ -12,13 +12,16 @@ export async function createSession(userId: string,role:string) {
   const expiresAt = new Date(Date.now() + 60 * 60 * 1000);
   const session = await encrypt({userId,role,expiresAt });
   
-  (await cookies()).set('session', session,
+  const cookie = await cookies()
+  cookie.set('session', session,
     {
     httpOnly: true,
     secure: true,
     expires: expiresAt,
-  }
-);
+    }
+  );
+
+  return
 }
 
 export async function deleteSession() {
@@ -40,6 +43,7 @@ export async function encrypt(payload: SessionPayload) {
 }
 
 export async function decrypt(session: string | undefined = "") {
+  
   try {
     const { payload } = await jwtVerify(session, encodedKey, {
       algorithms: ["HS256"],

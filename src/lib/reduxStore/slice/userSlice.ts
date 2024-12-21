@@ -39,7 +39,6 @@ export const userSlice = createSlice({
     },
     updateProfilPic: (state, action: PayloadAction<string>) => {
       state.data.avatar = action.payload
-
     }
   }
 })
