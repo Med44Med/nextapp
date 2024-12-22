@@ -19,9 +19,30 @@ export async function createSession(userId: string,role:string) {
     secure: true,
     expires: expiresAt,
     }
-  );
+  ); 
 
-  return
+  return;
+}
+
+export async function updateSession(){
+  const cookie = await cookies()
+  const lastSession = cookie.get('session')
+  if (lastSession){
+    const {userId,role} = await decrypt(lastSession)
+    const expiresAt = new Date(Date.now() + 60 * 60 * 1000);
+    const session = await encrypt({userId,role,expiresAt });
+
+    cookie.set('session', session,
+      {
+      httpOnly: true,
+      secure: true,
+      expires: expiresAt,
+      }
+    ); 
+
+
+  }
+  return;
 }
 
 export async function deleteSession() {

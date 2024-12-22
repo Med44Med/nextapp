@@ -18,8 +18,12 @@ export default async function RootLayout({children}: Readonly<{children: React.R
   let hydratedCookie = false
   if (typeof token === 'string') {
     try {
+      
+      
       const response = await axios.post('http://localhost:3000/api/users/hydrate',{token})
-      hydratedCookie = response.data;
+      hydratedCookie = response?.data?.data;
+      
+      
       
     } catch (error) {
       console.log(error);

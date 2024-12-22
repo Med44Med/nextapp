@@ -6,7 +6,8 @@ import UserDashboard from './_user/userDashboard';
 
 function Dashboard() {
   const role = useAppSelector (state => state.user.data.role)
-
+  console.log(role);
+  
   switch (role) {
     case 'user':return (<UserDashboard />)
   

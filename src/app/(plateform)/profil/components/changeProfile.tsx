@@ -88,8 +88,7 @@ const handleAvatar = async ()=>{
         ></div>
         <Image
           className="absolute top-1/2 left-1/2 -translate-y-1/2 w-11/12 -translate-x-1/2 aspect-square bg-cover rounded-full z-10"
-          // src={data.avatar}
-          src="https://placehold.co/600x400.png?text=MB"
+          src={data.avatar}
           alt="logo"
           width={100}
           height={100}
