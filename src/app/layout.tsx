@@ -7,8 +7,8 @@ import axios from 'axios';
 
 
 export const metadata: Metadata = {
-  title: "Dorossi",
-  description: "an online store for sharing lessons ",
+  title: "Nearly",
+  description: "an online solutions for transports and logistics",
 };
 
 export default async function RootLayout({children}: Readonly<{children: React.ReactNode;}>) {
@@ -18,13 +18,8 @@ export default async function RootLayout({children}: Readonly<{children: React.R
   let hydratedCookie = false
   if (typeof token === 'string') {
     try {
-      
-      
       const response = await axios.post('http://localhost:3000/api/users/hydrate',{token})
       hydratedCookie = response?.data?.data;
-      
-      
-      
     } catch (error) {
       console.log(error);
     }
@@ -36,7 +31,7 @@ export default async function RootLayout({children}: Readonly<{children: React.R
     
   
   return (
-    <html lang="en" data-theme="dark" dir="rtl">
+    <html lang="en" data-theme="dark" dir="ltr">
       <head>
         <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200..1000&display=swap" rel="stylesheet"/>
       </head>
