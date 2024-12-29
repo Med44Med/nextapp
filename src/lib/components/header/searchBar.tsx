@@ -17,12 +17,12 @@ function SearchBar() {
     const [search, setSearch] = useState<string>("")
 
     useEffect(() => {
-        const storage = localStorage.getItem('recent-searches')
+        const storage = localStorage.getItem('recent_searches')
         setRecentSearch(JSON.parse(storage))
     }, [])
     
     useEffect(() => {
-        localStorage.setItem('recent-searches',JSON.stringify(recentSearch))
+        localStorage.setItem('recent_searches',JSON.stringify(recentSearch))
         console.log(recentSearch);
         
     }, [recentSearch])
@@ -73,12 +73,14 @@ function SearchBar() {
     }
     
     const handleSearch = ()=>{
+      //if the input is empty
       if (!search){ return;}
+
+      //memo the search word
       setRecentSearch([...recentSearch, search])
         
-  
-      router.push(`/?search=${search}`) 
-      setSearch("")
+      // go to the search page
+      router.push(`/search?value=${search}`) 
   
     }
   
