@@ -1,11 +1,5 @@
-"use client"
-import React ,{useState,useRef,useEffect} from 'react'
 import Link from 'next/link';
-import { useRouter,useSearchParams} from 'next/navigation';
 
-import HeaderLoginStatus from './headerLoginStatus';
-import ThemeHandler from './themeHandler';
-import ResponsiveHeader from './responsiveHeader';
 import SearchBar from './searchBar';
 
 import { IoMenu } from "react-icons/io5";
