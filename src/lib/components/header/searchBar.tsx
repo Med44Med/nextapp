@@ -49,7 +49,7 @@ function SearchBar() {
     const handleRecentSearch = ()=>{
     
       
-    if(recentSearch.length === 0){ return } else {
+    if(recentSearch.length === 0 || null){ return } else {
         return <div className="w-full flex flex-col justify-start items-start gap-2">
                     <h2 className="font-bold text-base">Recent Searches :</h2>
                     <ul className="flex justify-start items-center gap-3 flex-wrap">
