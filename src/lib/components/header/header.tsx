@@ -18,7 +18,7 @@ function Header() {
   
   return (
     <header className="fixed w-full h-16 px-10 flex justify-between bg-white shadow-md">
-        <div className="h-full w-1/3 lg:w-1/5 bg-yellow-300 text-black text-3xl font-bold flex justify-center items-center rounded-xl">Nearly</div>
+        <Link href="/" className="h-full w-1/3 lg:w-1/5 bg-yellow-300 text-black text-3xl font-bold flex justify-center items-center rounded-xl">Nearly</Link>
         <SearchBar />
         <div className="h-full w-fit flex justify-center items-center gap-5 ml-10">
           <Link 

@@ -8,25 +8,35 @@ async function Page({searchParams}: {searchParams: Promise<{ [key: string]: stri
 
 
     const params = await searchParams
-
-    console.log(params);
+    const ValueParams = params?.value
+    const categoryParams = params?.category
     
-    // const data = await fetch(`https://api.vercel.app/blog/${params.value}`)
-    const posts = []
+    const data = await fetch(`https://api.vercel.app/blog`)
+    const allPosts = await data.json()
+    
+    let categoryPosts 
 
-    const examplePosts = [
-        { id: 1, category: 'Tech' },
-        { id: 2, category: 'Lifestyle' },
-        { id: 3, category: 'Tech' },
-        { id: 4, category: 'Health' },
-        { id: 5, category: 'Tech' },
-        { id: 6, category: 'Health' },
-        { id: 7, category: 'Health' },
-        { id: 8, category: 'Tech' },
-        { id: 9, category: 'Lifestyle' },
-        { id: 10, category: 'Health' },
-        { id: 11, category: 'Lifestyle' },
-      ]
+    if (categoryParams === "all") {
+        categoryPosts = allPosts
+    } else {
+        categoryPosts = allPosts.filter(post=>( post.category === categoryParams ))   
+    }
+
+    const posts = categoryPosts.filter(post=>{
+
+        const title = post.title.includes(ValueParams)
+        const content = post.content.includes(ValueParams)
+        const author = post.author.includes(ValueParams)
+
+        return title || content || author 
+    })
+
+
+    
+
+
+
+
 
     function handleCategory(posts){
 
@@ -64,7 +74,7 @@ async function Page({searchParams}: {searchParams: Promise<{ [key: string]: stri
                 </div>
                 <div className="flex p-10 justify-start items-center gap-5">
                     {
-                       handleCategory(examplePosts)       
+                       handleCategory(posts)       
                     }
                 </div>
                 </>

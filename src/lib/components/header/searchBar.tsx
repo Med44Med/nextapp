@@ -18,11 +18,7 @@ function SearchBar() {
     const [search, setSearch] = useState<string>("")
 
     
-    //extract if there is pervious search
-    useEffect(() => {
-        const storage = localStorage.getItem('recent_searches')
-        setRecentSearch(JSON.parse(storage))
-    }, [])
+   
 
     //handle searching func
     const handleSearch = ()=>{
@@ -30,10 +26,10 @@ function SearchBar() {
       if (!search){ return;}
 
       //memo the search word
-      setRecentSearch([...recentSearch, search])
+      setRecentSearch([...recentSearch,search])
         
       // go to the search page
-      router.push(`/search?value=${search}`) 
+      router.push(`/search?category=all&value=${search}`) 
 
       setSearch("")
   
@@ -58,9 +54,21 @@ function SearchBar() {
     
     //update search history
     useEffect(() => {
-        localStorage.setItem('recent_searches',JSON.stringify(recentSearch)) 
-        console.log(recentSearch);
-               
+
+      console.log(recentSearch);
+
+        const isData = localStorage.getItem('recent_searches')
+
+        if(isData){
+            const storage = JSON.parse(isData)
+            if (recentSearch.length === 0){
+                setRecentSearch([...storage])
+            } else {
+              localStorage.setItem('recent_searches', JSON.stringify(recentSearch))
+            }
+        } else {
+          localStorage.setItem('recent_searches', JSON.stringify(recentSearch))
+        }
     }, [recentSearch])
     
     
@@ -69,35 +77,34 @@ function SearchBar() {
     const deleteSearch = (i)=>{
         
             const y = recentSearch
-
-            console.log(y);
-            
             y.splice(i,1)
-            setRecentSearch(y)
-        
-      // setInputFocused(true)
+            setRecentSearch([...y])
+            localStorage.removeItem('recent_searches')
     }
+
+    
   
     const handleRecentSearch = ()=>{
     
       
     if(recentSearch?.length === 0 || null){ return } else {
         return <div className="w-full flex flex-col justify-start items-start gap-2">
-                    <h2 className="font-bold text-base">Recent Searches :</h2>
+                    <h2 className="font-bold text-base">Recent Searches : <div className="cursor-pointer" onClick={()=>{setRecentSearch([]);localStorage.removeItem('recent_searches')}}>Clear search</div></h2>
                     <ul className="flex justify-start items-center gap-3 flex-wrap">
                         { recentSearch.map((item, index)=>{
                             return  <li 
                                         key={index}
-                                        className="px-3 py-2 flex items-center justify-center gap-1 bg-gray-300 rounded-3xl text-sm"
+                                        className="px-3 py-1 flex items-center justify-center gap-1 bg-gray-300 rounded-3xl text-sm"
                                     >
                                         <Link href={`/?search=${item}`}>{item}</Link>
-                                        <IoMdClose 
-                                        onClick={()=>deleteSearch(index)}
-                                        className="transition-all hover:scale-125 cursor-pointer"
-                                        />
+                                        <div
+                                            onClick={()=>deleteSearch(index)}
+                                            className="cursor-pointer w-6 h-6 rounded-full flex justify-center items-center"
+                                        >
+                                          <IoMdClose className="transition-all hover:scale-125"/>
+                                        </div>
                                     </li>
-                     })
-                     }
+                        })}
                    </ul>
                  </div>
        }
