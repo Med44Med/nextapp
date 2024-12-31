@@ -16,6 +16,7 @@ function SearchBar() {
 
     const [recentSearch, setRecentSearch] = useState<string[]>([])
     const [search, setSearch] = useState<string>("")
+    const [category, setCategory] = useState<string>("all")
 
     
    
@@ -29,7 +30,7 @@ function SearchBar() {
       setRecentSearch([...recentSearch,search])
         
       // go to the search page
-      router.push(`/search?category=all&value=${search}`) 
+      router.push(`/search?category=${category}&value=${search}`) 
 
       setSearch("")
   
@@ -55,7 +56,7 @@ function SearchBar() {
     //update search history
     useEffect(() => {
 
-      console.log(recentSearch);
+      
 
         const isData = localStorage.getItem('recent_searches')
 

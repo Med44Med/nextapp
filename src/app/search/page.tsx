@@ -11,27 +11,30 @@ async function Page({searchParams}: {searchParams: Promise<{ [key: string]: stri
     const ValueParams = params?.value
     const categoryParams = params?.category
     
+    
     const data = await fetch(`https://api.vercel.app/blog`)
     const allPosts = await data.json()
     
     let categoryPosts 
-
+    
     if (categoryParams === "all") {
         categoryPosts = allPosts
     } else {
         categoryPosts = allPosts.filter(post=>( post.category === categoryParams ))   
     }
-
+    
     const posts = categoryPosts.filter(post=>{
 
-        const title = post.title.includes(ValueParams)
-        const content = post.content.includes(ValueParams)
-        const author = post.author.includes(ValueParams)
-
-        return title || content || author 
+        const title = post.title.toLowerCase().includes(ValueParams.toLowerCase())
+        const content = post.content.toLowerCase().includes(ValueParams.toLowerCase())
+        const author = post.author.toLowerCase().includes(ValueParams.toLowerCase())
+        
+        return title | content | author 
     })
+    
+    
 
-
+   
     
 
 
@@ -66,18 +69,18 @@ async function Page({searchParams}: {searchParams: Promise<{ [key: string]: stri
             return  <EmptySearch params={params}/>
         } else {
             return (
-                <>
-                <div>
-                    {posts.map((post, index) => (
-                        <Card key={index} title={post.title} description={post.description} image={post.image} />
-                    ))}
+                <div className="pt-16">
+                    <div className="flex p-10 justify-start items-center gap-10 flex-wrap bg-gray-100">
+                        {
+                        handleCategory(posts)       
+                        }
+                    </div>
+                    <div className=" flex flex-wrap justify-evenly items-center gap-3 gap-y-5">
+                        {posts.map((post, index) => (
+                            <Card key={index} card={post} />
+                        ))}
+                    </div>
                 </div>
-                <div className="flex p-10 justify-start items-center gap-5">
-                    {
-                       handleCategory(posts)       
-                    }
-                </div>
-                </>
             )
             
         }

@@ -24,10 +24,7 @@ export default async  function Home() {
           {posts.map((post) => (
             <Card
               key={post.id}
-              title={post.title}
-              content={post.content}
-              author={post.author}
-              category={post.category}
+              card={post}
             />
           ))}
         </div>

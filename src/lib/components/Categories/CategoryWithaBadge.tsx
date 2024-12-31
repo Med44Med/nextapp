@@ -5,9 +5,11 @@ function CategoryWithaBadge({category,count,search}) {
   return (
     <Link 
         href={`/search?category=${category}&value=${search}`}
-        className={`relative h-24 w-24 bg-yellow-300 rounded-full flex justify-center items-center font-bold`}
+        className={`relative h-20 w-20 bg-yellow-300 rounded-full flex justify-center items-center p-3`}
     >
-        <div>
+        <div 
+            className="text-center text-xs font-semibold text-wrap"
+        >
             {category}
         </div>
         <div 
