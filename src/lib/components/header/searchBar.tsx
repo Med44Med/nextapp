@@ -54,23 +54,19 @@ function SearchBar() {
     }, [searchRef,search]);
     
     //update search history
-    useEffect(() => {
-
-      
-
-        const isData = localStorage.getItem('recent_searches')
-
-        if(isData){
-            const storage = JSON.parse(isData)
-            if (recentSearch.length === 0){
-                setRecentSearch([...storage])
-            } else {
-              localStorage.setItem('recent_searches', JSON.stringify(recentSearch))
-            }
-        } else {
-          localStorage.setItem('recent_searches', JSON.stringify(recentSearch))
-        }
-    }, [recentSearch])
+    // useEffect(() => {
+    //     const isData = localStorage.getItem('recent_searches')
+    //     if(isData){
+    //         const storage = JSON.parse(isData)
+    //         if (recentSearch.length === 0){
+    //             setRecentSearch([...storage])
+    //         } else {
+    //           localStorage.setItem('recent_searches', JSON.stringify(recentSearch))
+    //         }
+    //     } else {
+    //       localStorage.setItem('recent_searches', JSON.stringify(recentSearch))
+    //     }
+    // }, [recentSearch])
     
     
     

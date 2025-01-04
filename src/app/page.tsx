@@ -1,14 +1,15 @@
 
 import Header  from "../lib/components/header/header";
 import Card from '../lib/components/card/Card';
-
+import Search from '../lib/components/search/Search';
+import Image from 'next/image';
+import backGround from './background.jpg'
 
 
 export default async  function Home() {
   
   
-  const data = await fetch('https://api.vercel.app/blog',{next:{revalidate:60}})
-  const posts = await data.json()
+
 
   
   
@@ -16,18 +17,9 @@ export default async  function Home() {
   return (
     <main className="flex flex-col justify-start items-center  bg-background overflow-y-hidden">
       <Header />
-      <section className="flex flex-col justify-start items-start min-h-screen w-full mt-20 p-10">
-        {/* add hero section with ads  */}
-        {/* add categories section  */}
-        
-        <div className="flex justify-evenly items-start flex-wrap gap-y-4 gap-x-10">
-          {posts.map((post) => (
-            <Card
-              key={post.id}
-              card={post}
-            />
-          ))}
-        </div>
+      <section className="relative flex flex-col justify-end items-center min-h-screen w-full pt-20 p-10">
+        <Image src={backGround} alt='background' fill className="absolute top-0 left-0 w-full h-full z-0 object-cover" />
+        <Search />
       </section>
     </main>
   );

@@ -10,6 +10,12 @@ const nextConfig: NextConfig = {
         pathname: '/v0/b/bacup-9d661.appspot.com/**',
       },
     ],
+    localPatterns: [
+      {
+        pathname: '/**',
+        search: '',
+      },
+    ]
   },
 };
 

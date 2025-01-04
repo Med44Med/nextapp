@@ -1,4 +1,4 @@
-[
+const communes = [
     {
         "id": 22,
         "commune_name_ascii": "Timekten",
@@ -13596,7 +13596,7 @@
         "daira_name_ascii": "Khemis",
         "daira_name": "خميس",
         "wilaya_code": "44",
-        "wilaya_name_ascii": "Aïn Defla",
+        "wilaya_name_ascii": "Ain Defla",
         "wilaya_name": "عين الدفلى"
     },
     {
@@ -13606,7 +13606,7 @@
         "daira_name_ascii": "Khemis",
         "daira_name": "خميس",
         "wilaya_code": "44",
-        "wilaya_name_ascii": "Aïn Defla",
+        "wilaya_name_ascii": "Ain Defla",
         "wilaya_name": "عين الدفلى"
     },
     {
@@ -13616,7 +13616,7 @@
         "daira_name_ascii": "Hammam Righa",
         "daira_name": "حمام ريغة",
         "wilaya_code": "44",
-        "wilaya_name_ascii": "Aïn Defla",
+        "wilaya_name_ascii": "Ain Defla",
         "wilaya_name": "عين الدفلى"
     },
     {
@@ -13626,7 +13626,7 @@
         "daira_name_ascii": "Hammam Righa",
         "daira_name": "حمام ريغة",
         "wilaya_code": "44",
-        "wilaya_name_ascii": "Aïn Defla",
+        "wilaya_name_ascii": "Ain Defla",
         "wilaya_name": "عين الدفلى"
     },
     {
@@ -13636,7 +13636,7 @@
         "daira_name_ascii": "Hammam Righa",
         "daira_name": "حمام ريغة",
         "wilaya_code": "44",
-        "wilaya_name_ascii": "Aïn Defla",
+        "wilaya_name_ascii": "Ain Defla",
         "wilaya_name": "عين الدفلى"
     },
     {
@@ -13646,7 +13646,7 @@
         "daira_name_ascii": "Djelida",
         "daira_name": "جليدة",
         "wilaya_code": "44",
-        "wilaya_name_ascii": "Aïn Defla",
+        "wilaya_name_ascii": "Ain Defla",
         "wilaya_name": "عين الدفلى"
     },
     {
@@ -13656,7 +13656,7 @@
         "daira_name_ascii": "Boumedfaa",
         "daira_name": "بومدفع",
         "wilaya_code": "44",
-        "wilaya_name_ascii": "Aïn Defla",
+        "wilaya_name_ascii": "Ain Defla",
         "wilaya_name": "عين الدفلى"
     },
     {
@@ -13666,7 +13666,7 @@
         "daira_name_ascii": "Djelida",
         "daira_name": "جليدة",
         "wilaya_code": "44",
-        "wilaya_name_ascii": "Aïn Defla",
+        "wilaya_name_ascii": "Ain Defla",
         "wilaya_name": "عين الدفلى"
     },
     {
@@ -13676,7 +13676,7 @@
         "daira_name_ascii": "El Amra",
         "daira_name": "العامرة",
         "wilaya_code": "44",
-        "wilaya_name_ascii": "Aïn Defla",
+        "wilaya_name_ascii": "Ain Defla",
         "wilaya_name": "عين الدفلى"
     },
     {
@@ -13686,7 +13686,7 @@
         "daira_name_ascii": "Djelida",
         "daira_name": "جليدة",
         "wilaya_code": "44",
-        "wilaya_name_ascii": "Aïn Defla",
+        "wilaya_name_ascii": "Ain Defla",
         "wilaya_name": "عين الدفلى"
     },
     {
@@ -13696,7 +13696,7 @@
         "daira_name_ascii": "El Amra",
         "daira_name": "العامرة",
         "wilaya_code": "44",
-        "wilaya_name_ascii": "Aïn Defla",
+        "wilaya_name_ascii": "Ain Defla",
         "wilaya_name": "عين الدفلى"
     },
     {
@@ -13706,7 +13706,7 @@
         "daira_name_ascii": "El Attaf",
         "daira_name": "العطاف",
         "wilaya_code": "44",
-        "wilaya_name_ascii": "Aïn Defla",
+        "wilaya_name_ascii": "Ain Defla",
         "wilaya_name": "عين الدفلى"
     },
     {
@@ -13716,7 +13716,7 @@
         "daira_name_ascii": "El Attaf",
         "daira_name": "العطاف",
         "wilaya_code": "44",
-        "wilaya_name_ascii": "Aïn Defla",
+        "wilaya_name_ascii": "Ain Defla",
         "wilaya_name": "عين الدفلى"
     },
     {
@@ -13726,7 +13726,7 @@
         "daira_name_ascii": "El Abadia",
         "daira_name": "العبادية",
         "wilaya_code": "44",
-        "wilaya_name_ascii": "Aïn Defla",
+        "wilaya_name_ascii": "Ain Defla",
         "wilaya_name": "عين الدفلى"
     },
     {
@@ -13736,7 +13736,7 @@
         "daira_name_ascii": "El Abadia",
         "daira_name": "العبادية",
         "wilaya_code": "44",
-        "wilaya_name_ascii": "Aïn Defla",
+        "wilaya_name_ascii": "Ain Defla",
         "wilaya_name": "عين الدفلى"
     },
     {
@@ -13746,7 +13746,7 @@
         "daira_name_ascii": "El Abadia",
         "daira_name": "العبادية",
         "wilaya_code": "44",
-        "wilaya_name_ascii": "Aïn Defla",
+        "wilaya_name_ascii": "Ain Defla",
         "wilaya_name": "عين الدفلى"
     },
     {
@@ -13756,7 +13756,7 @@
         "daira_name_ascii": "Djendel",
         "daira_name": "جندل",
         "wilaya_code": "44",
-        "wilaya_name_ascii": "Aïn Defla",
+        "wilaya_name_ascii": "Ain Defla",
         "wilaya_name": "عين الدفلى"
     },
     {
@@ -13766,7 +13766,7 @@
         "daira_name_ascii": "Djendel",
         "daira_name": "جندل",
         "wilaya_code": "44",
-        "wilaya_name_ascii": "Aïn Defla",
+        "wilaya_name_ascii": "Ain Defla",
         "wilaya_name": "عين الدفلى"
     },
     {
@@ -13776,7 +13776,7 @@
         "daira_name_ascii": "Miliana",
         "daira_name": "مليانة",
         "wilaya_code": "44",
-        "wilaya_name_ascii": "Aïn Defla",
+        "wilaya_name_ascii": "Ain Defla",
         "wilaya_name": "عين الدفلى"
     },
     {
@@ -13786,7 +13786,7 @@
         "daira_name_ascii": "Djendel",
         "daira_name": "جندل",
         "wilaya_code": "44",
-        "wilaya_name_ascii": "Aïn Defla",
+        "wilaya_name_ascii": "Ain Defla",
         "wilaya_name": "عين الدفلى"
     },
     {
@@ -13796,7 +13796,7 @@
         "daira_name_ascii": "Boumedfaa",
         "daira_name": "بومدفع",
         "wilaya_code": "44",
-        "wilaya_name_ascii": "Aïn Defla",
+        "wilaya_name_ascii": "Ain Defla",
         "wilaya_name": "عين الدفلى"
     },
     {
@@ -13806,7 +13806,7 @@
         "daira_name_ascii": "Ain Lechiakh",
         "daira_name": "عين الاشياخ",
         "wilaya_code": "44",
-        "wilaya_name_ascii": "Aïn Defla",
+        "wilaya_name_ascii": "Ain Defla",
         "wilaya_name": "عين الدفلى"
     },
     {
@@ -13816,7 +13816,7 @@
         "daira_name_ascii": "Ain Lechiakh",
         "daira_name": "عين الاشياخ",
         "wilaya_code": "44",
-        "wilaya_name_ascii": "Aïn Defla",
+        "wilaya_name_ascii": "Ain Defla",
         "wilaya_name": "عين الدفلى"
     },
     {
@@ -13826,7 +13826,7 @@
         "daira_name_ascii": "Ain Lechiakh",
         "daira_name": "عين الاشياخ",
         "wilaya_code": "44",
-        "wilaya_name_ascii": "Aïn Defla",
+        "wilaya_name_ascii": "Ain Defla",
         "wilaya_name": "عين الدفلى"
     },
     {
@@ -13836,7 +13836,7 @@
         "daira_name_ascii": "Rouina",
         "daira_name": "الروينة",
         "wilaya_code": "44",
-        "wilaya_name_ascii": "Aïn Defla",
+        "wilaya_name_ascii": "Ain Defla",
         "wilaya_name": "عين الدفلى"
     },
     {
@@ -13846,7 +13846,7 @@
         "daira_name_ascii": "Rouina",
         "daira_name": "الروينة",
         "wilaya_code": "44",
-        "wilaya_name_ascii": "Aïn Defla",
+        "wilaya_name_ascii": "Ain Defla",
         "wilaya_name": "عين الدفلى"
     },
     {
@@ -13856,7 +13856,7 @@
         "daira_name_ascii": "Rouina",
         "daira_name": "الروينة",
         "wilaya_code": "44",
-        "wilaya_name_ascii": "Aïn Defla",
+        "wilaya_name_ascii": "Ain Defla",
         "wilaya_name": "عين الدفلى"
     },
     {
@@ -13866,7 +13866,7 @@
         "daira_name_ascii": "Bordj El Emir Khaled",
         "daira_name": "برج الأمير خالد",
         "wilaya_code": "44",
-        "wilaya_name_ascii": "Aïn Defla",
+        "wilaya_name_ascii": "Ain Defla",
         "wilaya_name": "عين الدفلى"
     },
     {
@@ -13876,7 +13876,7 @@
         "daira_name_ascii": "Bordj El Emir Khaled",
         "daira_name": "برج الأمير خالد",
         "wilaya_code": "44",
-        "wilaya_name_ascii": "Aïn Defla",
+        "wilaya_name_ascii": "Ain Defla",
         "wilaya_name": "عين الدفلى"
     },
     {
@@ -13886,7 +13886,7 @@
         "daira_name_ascii": "Bordj El Emir Khaled",
         "daira_name": "برج الأمير خالد",
         "wilaya_code": "44",
-        "wilaya_name_ascii": "Aïn Defla",
+        "wilaya_name_ascii": "Ain Defla",
         "wilaya_name": "عين الدفلى"
     },
     {
@@ -13896,7 +13896,7 @@
         "daira_name_ascii": "Bathia",
         "daira_name": "بطحية",
         "wilaya_code": "44",
-        "wilaya_name_ascii": "Aïn Defla",
+        "wilaya_name_ascii": "Ain Defla",
         "wilaya_name": "عين الدفلى"
     },
     {
@@ -13906,7 +13906,7 @@
         "daira_name_ascii": "Bathia",
         "daira_name": "بطحية",
         "wilaya_code": "44",
-        "wilaya_name_ascii": "Aïn Defla",
+        "wilaya_name_ascii": "Ain Defla",
         "wilaya_name": "عين الدفلى"
     },
     {
@@ -13916,17 +13916,17 @@
         "daira_name_ascii": "Bathia",
         "daira_name": "بطحية",
         "wilaya_code": "44",
-        "wilaya_name_ascii": "Aïn Defla",
+        "wilaya_name_ascii": "Ain Defla",
         "wilaya_name": "عين الدفلى"
     },
     {
         "id": 1417,
-        "commune_name_ascii": "Aïn Defla",
+        "commune_name_ascii": "Ain Defla",
         "commune_name": "عين الدفلى",
-        "daira_name_ascii": "Aïn Defla",
+        "daira_name_ascii": "Ain Defla",
         "daira_name": "عين الدفلى",
         "wilaya_code": "44",
-        "wilaya_name_ascii": "Aïn Defla",
+        "wilaya_name_ascii": "Ain Defla",
         "wilaya_name": "عين الدفلى"
     },
     {
@@ -13936,7 +13936,7 @@
         "daira_name_ascii": "Miliana",
         "daira_name": "مليانة",
         "wilaya_code": "44",
-        "wilaya_name_ascii": "Aïn Defla",
+        "wilaya_name_ascii": "Ain Defla",
         "wilaya_name": "عين الدفلى"
     },
     {
@@ -13946,7 +13946,7 @@
         "daira_name_ascii": "El Amra",
         "daira_name": "العامرة",
         "wilaya_code": "44",
-        "wilaya_name_ascii": "Aïn Defla",
+        "wilaya_name_ascii": "Ain Defla",
         "wilaya_name": "عين الدفلى"
     },
     {
@@ -14076,7 +14076,7 @@
         "daira_name_ascii": "Ain Larbaa",
         "daira_name": "عين الأربعاء",
         "wilaya_code": "46",
-        "wilaya_name_ascii": "Aïn Témouchent",
+        "wilaya_name_ascii": "Ain Témouchent",
         "wilaya_name": "عين تيموشنت"
     },
     {
@@ -14086,7 +14086,7 @@
         "daira_name_ascii": "Ain Larbaa",
         "daira_name": "عين الأربعاء",
         "wilaya_code": "46",
-        "wilaya_name_ascii": "Aïn Témouchent",
+        "wilaya_name_ascii": "Ain Témouchent",
         "wilaya_name": "عين تيموشنت"
     },
     {
@@ -14096,7 +14096,7 @@
         "daira_name_ascii": "El Maleh",
         "daira_name": "المالح",
         "wilaya_code": "46",
-        "wilaya_name_ascii": "Aïn Témouchent",
+        "wilaya_name_ascii": "Ain Témouchent",
         "wilaya_name": "عين تيموشنت"
     },
     {
@@ -14106,7 +14106,7 @@
         "daira_name_ascii": "El Maleh",
         "daira_name": "المالح",
         "wilaya_code": "46",
-        "wilaya_name_ascii": "Aïn Témouchent",
+        "wilaya_name_ascii": "Ain Témouchent",
         "wilaya_name": "عين تيموشنت"
     },
     {
@@ -14116,7 +14116,7 @@
         "daira_name_ascii": "El Maleh",
         "daira_name": "المالح",
         "wilaya_code": "46",
-        "wilaya_name_ascii": "Aïn Témouchent",
+        "wilaya_name_ascii": "Ain Témouchent",
         "wilaya_name": "عين تيموشنت"
     },
     {
@@ -14126,7 +14126,7 @@
         "daira_name_ascii": "Hammam Bou Hadjar",
         "daira_name": "حمام بوحجر",
         "wilaya_code": "46",
-        "wilaya_name_ascii": "Aïn Témouchent",
+        "wilaya_name_ascii": "Ain Témouchent",
         "wilaya_name": "عين تيموشنت"
     },
     {
@@ -14136,7 +14136,7 @@
         "daira_name_ascii": "El Maleh",
         "daira_name": "المالح",
         "wilaya_code": "46",
-        "wilaya_name_ascii": "Aïn Témouchent",
+        "wilaya_name_ascii": "Ain Témouchent",
         "wilaya_name": "عين تيموشنت"
     },
     {
@@ -14146,7 +14146,7 @@
         "daira_name_ascii": "Ain Larbaa",
         "daira_name": "عين الأربعاء",
         "wilaya_code": "46",
-        "wilaya_name_ascii": "Aïn Témouchent",
+        "wilaya_name_ascii": "Ain Témouchent",
         "wilaya_name": "عين تيموشنت"
     },
     {
@@ -14156,7 +14156,7 @@
         "daira_name_ascii": "El Amria",
         "daira_name": "العامرية",
         "wilaya_code": "46",
-        "wilaya_name_ascii": "Aïn Témouchent",
+        "wilaya_name_ascii": "Ain Témouchent",
         "wilaya_name": "عين تيموشنت"
     },
     {
@@ -14166,7 +14166,7 @@
         "daira_name_ascii": "El Amria",
         "daira_name": "العامرية",
         "wilaya_code": "46",
-        "wilaya_name_ascii": "Aïn Témouchent",
+        "wilaya_name_ascii": "Ain Témouchent",
         "wilaya_name": "عين تيموشنت"
     },
     {
@@ -14176,7 +14176,7 @@
         "daira_name_ascii": "El Amria",
         "daira_name": "العامرية",
         "wilaya_code": "46",
-        "wilaya_name_ascii": "Aïn Témouchent",
+        "wilaya_name_ascii": "Ain Témouchent",
         "wilaya_name": "عين تيموشنت"
     },
     {
@@ -14186,7 +14186,7 @@
         "daira_name_ascii": "Ain Kihel",
         "daira_name": "عين الكيحل",
         "wilaya_code": "46",
-        "wilaya_name_ascii": "Aïn Témouchent",
+        "wilaya_name_ascii": "Ain Témouchent",
         "wilaya_name": "عين تيموشنت"
     },
     {
@@ -14196,7 +14196,7 @@
         "daira_name_ascii": "Ain Kihel",
         "daira_name": "عين الكيحل",
         "wilaya_code": "46",
-        "wilaya_name_ascii": "Aïn Témouchent",
+        "wilaya_name_ascii": "Ain Témouchent",
         "wilaya_name": "عين تيموشنت"
     },
     {
@@ -14206,7 +14206,7 @@
         "daira_name_ascii": "Ain Kihel",
         "daira_name": "عين الكيحل",
         "wilaya_code": "46",
-        "wilaya_name_ascii": "Aïn Témouchent",
+        "wilaya_name_ascii": "Ain Témouchent",
         "wilaya_name": "عين تيموشنت"
     },
     {
@@ -14216,7 +14216,7 @@
         "daira_name_ascii": "Ain Kihel",
         "daira_name": "عين الكيحل",
         "wilaya_code": "46",
-        "wilaya_name_ascii": "Aïn Témouchent",
+        "wilaya_name_ascii": "Ain Témouchent",
         "wilaya_name": "عين تيموشنت"
     },
     {
@@ -14226,7 +14226,7 @@
         "daira_name_ascii": "Beni Saf",
         "daira_name": "بني صاف",
         "wilaya_code": "46",
-        "wilaya_name_ascii": "Aïn Témouchent",
+        "wilaya_name_ascii": "Ain Témouchent",
         "wilaya_name": "عين تيموشنت"
     },
     {
@@ -14236,7 +14236,7 @@
         "daira_name_ascii": "Hammam Bou Hadjar",
         "daira_name": "حمام بوحجر",
         "wilaya_code": "46",
-        "wilaya_name_ascii": "Aïn Témouchent",
+        "wilaya_name_ascii": "Ain Témouchent",
         "wilaya_name": "عين تيموشنت"
     },
     {
@@ -14246,7 +14246,7 @@
         "daira_name_ascii": "Beni Saf",
         "daira_name": "بني صاف",
         "wilaya_code": "46",
-        "wilaya_name_ascii": "Aïn Témouchent",
+        "wilaya_name_ascii": "Ain Témouchent",
         "wilaya_name": "عين تيموشنت"
     },
     {
@@ -14256,7 +14256,7 @@
         "daira_name_ascii": "Beni Saf",
         "daira_name": "بني صاف",
         "wilaya_code": "46",
-        "wilaya_name_ascii": "Aïn Témouchent",
+        "wilaya_name_ascii": "Ain Témouchent",
         "wilaya_name": "عين تيموشنت"
     },
     {
@@ -14266,7 +14266,7 @@
         "daira_name_ascii": "Oulhassa Gheraba",
         "daira_name": "ولهاصة الغرابة",
         "wilaya_code": "46",
-        "wilaya_name_ascii": "Aïn Témouchent",
+        "wilaya_name_ascii": "Ain Témouchent",
         "wilaya_name": "عين تيموشنت"
     },
     {
@@ -14276,7 +14276,7 @@
         "daira_name_ascii": "Oulhassa Gheraba",
         "daira_name": "ولهاصة الغرابة",
         "wilaya_code": "46",
-        "wilaya_name_ascii": "Aïn Témouchent",
+        "wilaya_name_ascii": "Ain Témouchent",
         "wilaya_name": "عين تيموشنت"
     },
     {
@@ -14286,7 +14286,7 @@
         "daira_name_ascii": "Ain Larbaa",
         "daira_name": "عين الأربعاء",
         "wilaya_code": "46",
-        "wilaya_name_ascii": "Aïn Témouchent",
+        "wilaya_name_ascii": "Ain Témouchent",
         "wilaya_name": "عين تيموشنت"
     },
     {
@@ -14296,7 +14296,7 @@
         "daira_name_ascii": "El Amria",
         "daira_name": "العامرية",
         "wilaya_code": "46",
-        "wilaya_name_ascii": "Aïn Témouchent",
+        "wilaya_name_ascii": "Ain Témouchent",
         "wilaya_name": "عين تيموشنت"
     },
     {
@@ -14306,7 +14306,7 @@
         "daira_name_ascii": "Hammam Bou Hadjar",
         "daira_name": "حمام بوحجر",
         "wilaya_code": "46",
-        "wilaya_name_ascii": "Aïn Témouchent",
+        "wilaya_name_ascii": "Ain Témouchent",
         "wilaya_name": "عين تيموشنت"
     },
     {
@@ -14316,7 +14316,7 @@
         "daira_name_ascii": "Ain Temouchent",
         "daira_name": "عين تموشنت",
         "wilaya_code": "46",
-        "wilaya_name_ascii": "Aïn Témouchent",
+        "wilaya_name_ascii": "Ain Témouchent",
         "wilaya_name": "عين تيموشنت"
     },
     {
@@ -14326,7 +14326,7 @@
         "daira_name_ascii": "Ain Temouchent",
         "daira_name": "عين تموشنت",
         "wilaya_code": "46",
-        "wilaya_name_ascii": "Aïn Témouchent",
+        "wilaya_name_ascii": "Ain Témouchent",
         "wilaya_name": "عين تيموشنت"
     },
     {
@@ -14336,7 +14336,7 @@
         "daira_name_ascii": "El Amria",
         "daira_name": "العامرية",
         "wilaya_code": "46",
-        "wilaya_name_ascii": "Aïn Témouchent",
+        "wilaya_name_ascii": "Ain Témouchent",
         "wilaya_name": "عين تيموشنت"
     },
     {
@@ -14346,7 +14346,7 @@
         "daira_name_ascii": "Hammam Bou Hadjar",
         "daira_name": "حمام بوحجر",
         "wilaya_code": "46",
-        "wilaya_name_ascii": "Aïn Témouchent",
+        "wilaya_name_ascii": "Ain Témouchent",
         "wilaya_name": "عين تيموشنت"
     },
     {
@@ -15410,3 +15410,25 @@
         "wilaya_name": "المنيعة"
     }
 ]
+
+
+const generateWilayas = ()=>{
+    const wilayas = []
+    const filter = communes.filter((obj,index,self)=>{
+        return index === self.findIndex((o)=> o.wilaya_name_ascii === obj.wilaya_name_ascii)
+    })
+
+    for (let i = 0; i < filter.length; i++) {
+        wilayas[i]={
+            "id": i+1,
+            "name": filter[i].wilaya_name_ascii,
+            "ar_name": filter[i].wilaya_name,
+            "code": filter[i].wilaya_code,
+        }
+        
+    }
+    return wilayas
+}
+
+export {communes , generateWilayas}
+

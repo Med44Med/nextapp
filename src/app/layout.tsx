@@ -4,6 +4,7 @@ import "./globals.css";
 import StoreProvider from './StoreProvider'
 import CookieProvider from './CookieProvider';
 import axios from 'axios';
+import AnalyticsProvider from './AnalyticsProvider';
 
 
 export const metadata: Metadata = {
@@ -24,6 +25,10 @@ export default async function RootLayout({children}: Readonly<{children: React.R
       console.log(error);
     }
   }
+
+  
+
+ 
   
   
  
@@ -33,11 +38,15 @@ export default async function RootLayout({children}: Readonly<{children: React.R
   return (
     <html lang="en" data-theme="dark" dir="ltr">
       <head>
-        <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200..1000&display=swap" rel="stylesheet"/>
+        <link
+          href="https://fonts.googleapis.com/css2?family=Cairo:wght@200..1000&display=swap"
+          rel="stylesheet"
+        />
       </head>
       <body>
         <StoreProvider>
           <CookieProvider hydratedCookie={hydratedCookie}>
+            <AnalyticsProvider />
             {children}
           </CookieProvider>
         </StoreProvider>
