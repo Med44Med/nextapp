@@ -1,14 +1,9 @@
 "use client"
 import {useState,useEffect} from 'react'
 
-
-import {generateWilayas} from "../../assets/Communes.js"
-
-
-import { FaExchangeAlt } from "react-icons/fa";
-import { MdKeyboardArrowRight } from "react-icons/md";
 import TransportForm from './forms/TransportForm';
 import Rent from './forms/Rent';
+import Services from './forms/Services';
 
 
 
@@ -16,14 +11,13 @@ function Search() {
 
     const styleType = "grow bg-[rgba(0,0,0,0.6)]  backdrop-blur-md transition-all flex justify-center items-center py-6 text-white font-bold text-xl select-none cursor-pointer border border-[rgba(255,255,255,0.2)] hover:border-[rgba(255,255,255,0.8)] [&.active]:border-[rgba(255,255,255,0.8)]"
     
-    const wilayas = generateWilayas()
     
 
     
     
     
     
-    const [typeSelect, setTypeSelect] = useState('rent') // transport - rent - services - subcontractor
+    const [typeSelect, setTypeSelect] = useState('services') // transport - rent - services - subcontractor
     
 
     //transport Form
@@ -35,6 +29,7 @@ function Search() {
       switch (typeSelect) {
         case 'transport':  return <TransportForm />
         case 'rent':  return <Rent />
+        case 'services':  return <Services />
       
         default: return null
           

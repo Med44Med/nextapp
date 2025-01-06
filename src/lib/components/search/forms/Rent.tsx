@@ -89,7 +89,13 @@ const Rent = () => {
 
   return (
     <form  className="flex items-center gap-5 px-5 h-full" onKeyDown={(event)=>{if (event.keyCode === 13) { event.preventDefault() }} } >
-          
+          <div className="relative grow flex flex-col justify-center items-start gap-3">
+            <select name="" id="">
+              <option value="1">1</option>
+              <option value="2">2</option>
+
+            </select>
+          </div>
           <div className="relative grow flex flex-col justify-center items-start gap-3">
             <label className="uppercase font-bold text-sm">From</label>
             <input ref={FromRef} type="text" name="from" value={data.form || from} onChange={e=>handleInput(e)} spellCheck="false" autoComplete="off" placeholder="Search" className="outline-none text-2xl"/>
